@@ -4,6 +4,7 @@
 #include <windows.h>
 
 void titleDraw();
+void gotoxy();
 
 void titleDraw(){
 	printf("\n\n\n");
