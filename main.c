@@ -3,6 +3,8 @@
 #include <conio.h>
 #include <windows.h>
 
+void titleDraw();
+
 void titleDraw(){
 	printf("\n\n\n");
 	printf("               #######      #    ##      #   ######        ########          #         ##        ##  #########\n");
