@@ -31,6 +31,15 @@ void gotoxy(int x, int y){
 	SetConsoleCursorPosition(consoleHandle, pos);
 }
 
+void menuDraw() {
+	gotoxy(50, 12);
+	printf("> Game  start");
+	gotoxy(52, 13);
+	printf("명예의 전당");
+	gotoxy(52, 14);
+	printf("   EXIT   ");
+}
+
 int main()
 {
   printf("OSS Project1\n");
