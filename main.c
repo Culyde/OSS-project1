@@ -6,6 +6,7 @@
 void titleDraw();
 void gotoxy();
 void init();
+void menuDraw();
 
 void init() {
 	system("mode con cols=56 lines=20 | title DINOGAME");
