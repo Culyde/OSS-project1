@@ -42,7 +42,7 @@ void menuDraw() {
 
 int main()
 {
-  printf("OSS Project1\n");
-  printf("First GitHub Training\n");
+  titleDraw();
+  menuDraw();
   return 0;
 }
