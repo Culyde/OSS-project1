@@ -37,6 +37,8 @@ void menuDraw() {
 	gotoxy(52, 13);
 	printf("  Records");
 	gotoxy(52, 14);
+	printf("  Game Rules");
+	gotoxy(52, 15);
 	printf("   EXIT   ");
 }
 
