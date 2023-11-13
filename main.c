@@ -33,14 +33,17 @@ void gotoxy(int x, int y){
 }
 
 void menuDraw() {
-	gotoxy(50, 12);
-	printf("> Game  start");
-	gotoxy(52, 13);
-	printf("  Records");
-	gotoxy(52, 14);
-	printf("  Game Rules");
-	gotoxy(52, 15);
-	printf("   EXIT   ");
+	int x = 50, y = 20;
+	gotoxy(x, y);
+	printf("   > GAME START");
+	gotoxy(x, y+1);
+	printf("     CHARCTERS");
+	gotoxy(x+2, y+2);
+	printf("    RECORDS");
+	gotoxy(x + 2, y + 3);
+	printf("   GAME RULE");
+	gotoxy(x+2, y+4);
+	printf("     EXIT");
 
 	while (1) {
 		int n = keyControl();
