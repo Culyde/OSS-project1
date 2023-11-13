@@ -8,6 +8,7 @@ void gotoxy();
 void init();
 void menuDraw();
 int keyControl();
+
 void init() {
 	system("mode con cols=56 lines=20 | title DINOGAME");
 }
@@ -40,6 +41,52 @@ void menuDraw() {
 	printf("  Game Rules");
 	gotoxy(52, 15);
 	printf("   EXIT   ");
+
+	while (1) {
+		int n = keyControl();
+		switch (n) {
+		case UP: {
+			if (y > 20) {
+				gotoxy(x+3, y);
+				printf(" ");
+				gotoxy(x+3, --y);
+				printf(">");
+			}
+			break;
+		}
+		case DOWN: {
+			if (y < 24) {
+				gotoxy(x + 3, y);
+				printf(" ");
+				gotoxy(x + 3, ++y);
+				printf(">");
+			}
+			break;
+		}
+		case SUBMIT: {
+			return y - 12;
+			}
+		}
+	}
+}
+
+int keyControl(){ //키를 컨트롤하는 함수
+	char temp = getch();
+	if(temp == 'w' || temp == 'W'){
+		return UP;
+	}
+	else if(temp == 'a' || temp == 'A') {
+		return LEFT;
+	}
+	else if(temp == 's' || temp == 'S') {
+		return DOWN;
+	}
+	else if(temp == 'd' || temp == 'D') {
+		return RIGHT;
+	}
+	else if (temp == ' ') { // 엔터키가 선택버튼
+		return SUBMIT;
+	}
 }
 
 int main()
