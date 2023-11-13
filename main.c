@@ -35,7 +35,7 @@ void menuDraw() {
 	gotoxy(50, 12);
 	printf("> Game  start");
 	gotoxy(52, 13);
-	printf("명예의 전당");
+	printf("  Records");
 	gotoxy(52, 14);
 	printf("   EXIT   ");
 }
