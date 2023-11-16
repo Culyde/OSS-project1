@@ -153,6 +153,7 @@ void charDraw() {
 
 int main()
 {
+  titleDraw();
   int menuCode = menuDraw();
 		if (menuCode == 0) {
 
@@ -171,7 +172,7 @@ int main()
 		}
 		system("cls");
 	
-  titleDraw();
+
   menuDraw();
   keyControl();
   return 0;
