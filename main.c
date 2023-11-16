@@ -113,15 +113,52 @@ void infoDraw() {
 	}
 }
 
+void charDraw() {
+	system("cls");
+	int x = 50, y = 5;
+	gotoxy(x, y);
+	printf("   > 티라노사우르스");
+	gotoxy(x, y + 3);
+	printf("     오리");
+	gotoxy(x , y + 6);
+	printf("     토끼");
+
+	while (1) {
+		int n = keyControl();
+		switch (n) {
+		case UP: {
+			if (y > 5) {
+				gotoxy(x + 3, y);
+				printf(" ");
+				gotoxy(x + 3, y-=3);
+				printf(">");
+			}
+			break;
+		}
+		case DOWN: {
+			if (y <  11) {
+				gotoxy(x + 3, y);
+				printf(" ");
+				gotoxy(x + 3, y+=3);
+				printf(">");
+			}
+			break;
+		}
+		case SUBMIT: {
+			return 0;
+			}
+		}
+	}
+}
+
 int main()
 {
-  titleDraw();
   int menuCode = menuDraw();
 		if (menuCode == 0) {
 
 			}
 		else if (menuCode == 1) {
-
+			charDraw();
 		}
 		else if (menuCode == 2) {
 
@@ -134,7 +171,7 @@ int main()
 		}
 		system("cls");
 	
-
+  titleDraw();
   menuDraw();
   keyControl();
   return 0;
