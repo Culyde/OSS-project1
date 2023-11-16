@@ -12,7 +12,7 @@
 void titleDraw();
 void gotoxy();
 void init();
-void menuDraw();
+int menuDraw();
 int keyControl();
 void infoDraw();
 void init() {
@@ -38,7 +38,7 @@ void gotoxy(int x, int y){
 	SetConsoleCursorPosition(consoleHandle, pos);
 }
 
-void menuDraw() {
+int menuDraw() {
 	int x = 50, y = 20;
 	gotoxy(x, y);
 	printf("   > GAME START");
@@ -73,7 +73,7 @@ void menuDraw() {
 			break;
 		}
 		case SUBMIT: {
-			return y - 12;
+			return y - 20;
 			}
 		}
 	}
@@ -118,8 +118,7 @@ int main()
   titleDraw();
   int menuCode = menuDraw();
 		if (menuCode == 0) {
-			
-		}
+			}
 		else if (menuCode == 1) {
 
 		}
@@ -130,9 +129,11 @@ int main()
 			infoDraw();
 		}
 		else if (menuCode == 4) {
+			return 0;
 		}
-		
-	}
+		system("cls");
+	
+
   menuDraw();
   return 0;
 }
