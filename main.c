@@ -14,7 +14,7 @@ void gotoxy();
 void init();
 void menuDraw();
 int keyControl();
-
+void infoDraw();
 void init() {
 	system("mode con cols=56 lines=20 | title DINOGAME");
 }
@@ -95,6 +95,21 @@ int keyControl(){ //키를 컨트롤하는 함수
 	}
 	else if (temp == ' ') { // 엔터키가 선택버튼
 		return SUBMIT;
+	}
+}
+
+void infoDraw() {
+	system("cls");
+	printf("\n\n");
+	printf("                                                           [ 조작법 ]\n\n");
+	printf("                                                        점프 : Space Bar\n\n");
+	printf("                       다가오는 장애물을 점프를 통해 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
+	printf("                                스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다.");
+	
+	while (1) {
+		if (keyControl() == SUBMIT) {
+			break;
+		}
 	}
 }
 
