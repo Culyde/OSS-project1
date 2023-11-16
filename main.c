@@ -116,6 +116,23 @@ void infoDraw() {
 int main()
 {
   titleDraw();
+  int menuCode = menuDraw();
+		if (menuCode == 0) {
+			
+		}
+		else if (menuCode == 1) {
+
+		}
+		else if (menuCode == 2) {
+
+		}
+		else if (menuCode == 3) {
+			infoDraw();
+		}
+		else if (menuCode == 4) {
+		}
+		
+	}
   menuDraw();
   return 0;
 }
