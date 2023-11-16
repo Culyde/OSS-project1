@@ -118,6 +118,7 @@ int main()
   titleDraw();
   int menuCode = menuDraw();
 		if (menuCode == 0) {
+
 			}
 		else if (menuCode == 1) {
 
@@ -135,5 +136,6 @@ int main()
 	
 
   menuDraw();
+  keyControl();
   return 0;
 }
