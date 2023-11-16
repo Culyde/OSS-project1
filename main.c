@@ -9,6 +9,9 @@
 #define RIGHT 3
 #define SUBMIT 4
 
+#define dinoX 0
+#define dinoY 15
+
 void titleDraw();
 void gotoxy();
 void init();
@@ -113,15 +116,54 @@ void infoDraw() {
 	}
 }
 
-void charDraw() {
+	int charDraw() {
 	system("cls");
-	int x = 50, y = 5;
+	int x = 30, y = 10;
 	gotoxy(x, y);
-	printf("   > 티라노사우르스");
-	gotoxy(x, y + 3);
-	printf("     오리");
-	gotoxy(x , y + 6);
-	printf("     토끼");
+	printf("> 티라노");
+	gotoxy(25, dinoY);			printf("        $$$$$$$ \n");
+	gotoxy(25, dinoY + 1);		printf("       $$ $$$$$$\n");
+	gotoxy(25, dinoY + 2);		printf("       $$$$$$$$$\n");
+	gotoxy(25, dinoY + 3);		printf("$      $$$      \n");
+	gotoxy(25, dinoY + 4);		printf("$$     $$$$$$$  \n");
+	gotoxy(25, dinoY + 5);		printf("$$$   $$$$$     \n");
+	gotoxy(25, dinoY + 6);		printf(" $$  $$$$$$$$$$ \n");
+	gotoxy(25, dinoY + 7);		printf(" $$$$$$$$$$$    \n");
+	gotoxy(25, dinoY + 8);		printf("  $$$$$$$$$$    \n");
+	gotoxy(25, dinoY + 9);		printf("    $$$$$$$$    \n");
+	gotoxy(25, dinoY + 10);		printf("     $$$$$$     \n");
+	gotoxy(25, dinoY + 11);		printf("     $    $$$    \n");
+	gotoxy(25, dinoY + 12);		printf("     $$          ");
+	
+	gotoxy(x + 20, y);
+	printf("   오리");
+	gotoxy(47, dinoY);			printf("       ■■■■■\n");
+	gotoxy(47, dinoY + 1);		printf("      ■■■■■■■\n");
+	gotoxy(47, dinoY + 2);		printf("      ■■ ■■■■■\n");
+	gotoxy(47, dinoY + 3);		printf("      ■■■■■■■■■■■■■\n");
+	gotoxy(47, dinoY + 4);		printf("      ■■■■■■■■■■■■\n");
+	gotoxy(47, dinoY + 5);		printf("*     ■■■■■\n");
+	gotoxy(47, dinoY + 6);		printf("■      ■■■■■\n");
+	gotoxy(47, dinoY + 7);		printf("■■      ■■■■■\n");
+	gotoxy(47, dinoY + 8);		printf("■■■■■■■■■■■■■■\n");
+	gotoxy(47, dinoY + 9);		printf("■■■■■■■■■■■■■■■\n");
+	gotoxy(47, dinoY + 10);		printf("■■■■■■■■■■■■■■\n");
+	gotoxy(47, dinoY + 11);		printf("  ■■■■■■■■■■■■\n");
+	gotoxy(47, dinoY + 12);		printf("    ■■■■■■■\n");
+	gotoxy(x + 40, y);
+	printf("   토끼");
+	gotoxy(x + 38, dinoY);			printf("       ## ##     \n");
+	gotoxy(x + 38, dinoY + 1);		printf("       ## ##    \n");
+	gotoxy(x + 38, dinoY + 2);		printf("       #####   \n");
+	gotoxy(x + 38, dinoY + 3);		printf("      ### ####  \n");
+	gotoxy(x + 38, dinoY + 4);		printf("      ########   \n");
+	gotoxy(x + 38, dinoY + 5);		printf("     ######     \n");
+	gotoxy(x + 38, dinoY + 6);		printf("##  ###########\n");
+	gotoxy(x + 38, dinoY + 7);		printf("###########    \n");
+	gotoxy(x + 38, dinoY + 8);		printf(" ##########    \n");
+	gotoxy(x + 38, dinoY + 9);		printf("   ########    \n");
+	gotoxy(x + 38, dinoY + 10);		printf("    #    ###    \n");
+	gotoxy(x + 38, dinoY + 11);		printf("    ##          ");
 
 	while (1) {
 		int n = keyControl();
