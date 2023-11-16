@@ -168,30 +168,55 @@ void infoDraw() {
 	while (1) {
 		int n = keyControl();
 		switch (n) {
-		case UP: {
-			if (y > 5) {
-				gotoxy(x + 3, y);
+		case RIGHT: {
+			if (x < 70 && x >= 30) {
+				gotoxy(x , y);
 				printf(" ");
-				gotoxy(x + 3, y-=3);
+				gotoxy(x += 20, y);
 				printf(">");
 			}
 			break;
 		}
-		case DOWN: {
-			if (y <  11) {
-				gotoxy(x + 3, y);
+		case LEFT: {
+			if (x <= 70 && x > 30){
+				gotoxy(x , y);
 				printf(" ");
-				gotoxy(x + 3, y+=3);
+				gotoxy(x -= 20, y);
 				printf(">");
 			}
 			break;
 		}
 		case SUBMIT: {
-			return 0;
+			system("cls");
+			if (x == 30) {
+				gotoxy(47, 10);
+				printf("티라노를 선택하셨습니다.");
+				gotoxy(28, 14);
+				printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+				if(keyControl()== SUBMIT)
+				return 1;
+			}
+			else if (x == 50) {
+				gotoxy(47, 10);
+				printf("오리를 선택하셨습니다.");
+				gotoxy(28, 14);
+				printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+				if (keyControl() == SUBMIT)
+					return 2;
+			}
+			else if (x == 70) {
+				gotoxy(47, 10);
+				printf("토끼를 선택하셨습니다.");
+				gotoxy(28, 14);
+				printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+				if (keyControl() == SUBMIT)
+					return 3;
+			}
 			}
 		}
 	}
 }
+
 
 int main()
 {
