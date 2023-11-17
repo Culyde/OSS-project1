@@ -9,10 +9,15 @@
 #define RIGHT 3
 #define SUBMIT 4
 
-#define dinoX 0
-#define dinoY 15
+#define DINO_X 0
+#define DINO_Y 15
+#define TREE_X 94
+#define TREE_Y 25
 
 int charChoise; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
+int treeX = TREE_X;
+int dinoX = DINO_X;
+int dinoY = DINO_Y;
 
 void titleDraw();
 void gotoxy();
