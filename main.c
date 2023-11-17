@@ -334,6 +334,40 @@ int draw_Tyrano(int tic){//티라노 그리기
     }
 }
 
+int draw_rabbit(int tic) { //토끼 그리기
+
+   int toc = tic % 8;
+
+   //몸통
+   gotoxy(dinoX, dinoY+4);        printf("        $$ $$     \n");
+   gotoxy(dinoX, dinoY + 5);      printf("        $$ $$    \n");
+   gotoxy(dinoX, dinoY + 6);      printf("        $$$$$$   \n");
+   gotoxy(dinoX, dinoY + 7);      printf("       $$$ $$$$  \n");
+   gotoxy(dinoX, dinoY + 8);      printf("       $$$$$$$   \n");
+   gotoxy(dinoX, dinoY + 9);      printf("      $$$$$$     \n");
+   gotoxy(dinoX, dinoY + 10);     printf(" $$  $$$$$$$$$$$\n");
+   gotoxy(dinoX, dinoY + 11);     printf(" $$$$$$$$$$$    \n");
+   gotoxy(dinoX, dinoY + 12);     printf("  $$$$$$$$$$    \n");
+   gotoxy(dinoX, dinoY + 13);     printf("    $$$$$$$$    \n");
+
+
+   //발 구르기 구현
+   if (toc >= 0 && toc <= 3) //4tic 동안 유지
+   {
+      erase_foot();
+      gotoxy(dinoX, dinoY + 14); //발 그리기
+      printf("     $    $$$    \n");
+      printf("     $$          ");
+   }
+   else
+   {
+      erase_foot();
+      gotoxy(dinoX, dinoY + 14); //발 그리기
+      printf("     $$$  $     \n");
+      printf("          $$    ");
+   }
+}
+
 
 int main()
 {
