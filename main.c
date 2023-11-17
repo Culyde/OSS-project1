@@ -44,44 +44,56 @@ void gotoxy(int x, int y){
 }
 
 int menuDraw() {
-	int x = 50, y = 20;
-	gotoxy(x, y);
-	printf("   > GAME START");
-	gotoxy(x, y+1);
-	printf("     CHARCTERS");
-	gotoxy(x+2, y+2);
-	printf("    RECORDS");
-	gotoxy(x + 2, y + 3);
-	printf("   GAME RULE");
-	gotoxy(x+2, y+4);
-	printf("     EXIT");
 
-	while (1) {
-		int n = keyControl();
-		switch (n) {
-		case UP: {
-			if (y > 20) {
-				gotoxy(x+3, y);
-				printf(" ");
-				gotoxy(x+3, --y);
-				printf(">");
-			}
-			break;
-		}
-		case DOWN: {
-			if (y < 24) {
-				gotoxy(x + 3, y);
-				printf(" ");
-				gotoxy(x + 3, ++y);
-				printf(">");
-			}
-			break;
-		}
-		case SUBMIT: {
-			return y - 20;
-			}
-		}
-	}
+    int x = 50, y = 20;
+    gotoxy(x - 5, y - 3);
+    printf(" +-------------------+\n");
+    gotoxy(x - 5, y - 2);
+    printf(" |     MAIN MENU     |\n");
+    gotoxy(x - 5, y - 1);
+    printf(" +-------------------+\n");
+    gotoxy(x - 5, y);
+    printf(" |   > GAME START    |");
+    gotoxy(x - 5, y + 1);
+    printf(" |     CHARACTERS    |");
+    gotoxy(x - 5, y + 2);
+    printf(" |     STAGES        |");
+    gotoxy(x - 5, y + 3);
+    printf(" |     RECORDS       |");
+    gotoxy(x - 5, y + 4);
+    printf(" |     GAME RULE     |");
+    gotoxy(x - 5, y + 5);
+    printf(" |     E X I T       |");
+    gotoxy(x - 5, y + 6);
+    printf(" +-------------------+");
+
+    while (1) {
+        int n = keyControl();
+        switch (n) {
+        case UP: {
+            if (y > 20) {
+                gotoxy(x, y);
+                printf(" ");
+                gotoxy(x, --y);
+                printf(">");
+            }
+            break;
+        }
+        case DOWN: {
+            if (y < 25) {
+                gotoxy(x, y);
+                printf(" ");
+                gotoxy(x, ++y);
+                printf(">");
+            }
+            break;
+        }
+        case SUBMIT: {
+            return y - 20;
+        }
+        }
+    }
+
 }
 
 int keyControl(){ //키를 컨트롤하는 함수
