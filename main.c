@@ -286,6 +286,13 @@ void charDraw() {
     }
 }
 
+void erase_foot() { //발 지우기
+    gotoxy(dinoX, dinoY + 13);
+    printf("                 \n");
+    printf("                 ");
+
+}
+
 int draw_Tyrano(int tic){//티라노 그리기
     int toc = tic % 8;
 
