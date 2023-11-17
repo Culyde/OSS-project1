@@ -293,6 +293,15 @@ void erase_foot() { //발 지우기
 
 }
 
+void erase_dino() { //공룡 지우기
+    for (int i = 0; i < 24; i++) {
+        gotoxy(dinoX, 6 + i);
+        printf("                             ");
+    }
+    erase_foot();
+}
+
+
 int draw_Tyrano(int tic){//티라노 그리기
     int toc = tic % 8;
 
