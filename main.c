@@ -137,7 +137,7 @@ void infoDraw() {
 	}
 }
 
-void charDraw() {
+int charDraw() {
     system("cls");
     int x = 13, y = 10;
     gotoxy(12, 0);         printf("----------------------------------------------------------------------------------------------");
@@ -237,7 +237,6 @@ void charDraw() {
                 gotoxy(47, dinoY + 12);      printf("     $$          ");
 
                 if (keyControl() == SUBMIT)
-
                     return charChoise = 1;
             }
             else if (x == 53) {
