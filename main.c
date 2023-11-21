@@ -166,19 +166,19 @@ int charDraw() {
     gotoxy(11, dinoY + 12);      printf("     $$          ");
 
     gotoxy(53, y + 2);         printf("  2. 오리");
-    gotoxy(47, dinoY);         printf("          ■■■■■\n");
-    gotoxy(47, dinoY + 1);      printf("         ■■■■■■■\n");
-    gotoxy(47, dinoY + 2);      printf("         ■■ ■■■■■\n");
-    gotoxy(47, dinoY + 3);      printf("         ■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 4);      printf("         ■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 5);      printf("   *     ■■■■■\n");
-    gotoxy(47, dinoY + 6);      printf("   ■      ■■■■■\n");
-    gotoxy(47, dinoY + 7);      printf("   ■■      ■■■■■\n");
-    gotoxy(47, dinoY + 8);      printf("   ■■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 9);      printf("   ■■■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 10);      printf("   ■■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 11);      printf("     ■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 12);      printf("       ■■■■■■■\n");
+    gotoxy(47, dinoY);         printf("            $$$$$\n");
+    gotoxy(47, dinoY + 1);      printf("           $$$$$$$\n");
+    gotoxy(47, dinoY + 2);      printf("           $$ $$$$$\n");
+    gotoxy(47, dinoY + 3);      printf("           $$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 4);      printf("           $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 5);      printf("     *     $$$$$\n");
+    gotoxy(47, dinoY + 6);      printf("     $      $$$$$\n");
+    gotoxy(47, dinoY + 7);      printf("     $$      $$$$$\n");
+    gotoxy(47, dinoY + 8);      printf("     $$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 9);      printf("      $$$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 10);      printf("      $$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 11);      printf("       $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 12);      printf("         $$$$$$$\n");
 
     gotoxy(93, y + 2);            printf("  3. 토끼");
     gotoxy(90, dinoY);         printf("       ## ##     \n");
@@ -372,19 +372,19 @@ void draw_Duck(int tic) { //오리 그리기
     int toc = tic % 8;
 
     //몸통
-    gotoxy(dinoX, dinoY);         printf("            ■■■■■\n");
-    gotoxy(dinoX, dinoY + 1);      printf("           ■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 2);      printf("           ■■ ■■■■■\n");
-    gotoxy(dinoX, dinoY + 3);      printf("           ■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 4);      printf("           ■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 5);      printf("     *     ■■■■■\n");
-    gotoxy(dinoX, dinoY + 6);      printf("     ■      ■■■■■\n");
-    gotoxy(dinoX, dinoY + 7);      printf("     ■■      ■■■■■\n");
-    gotoxy(dinoX, dinoY + 8);      printf("     ■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 9);      printf("     ■■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 10);      printf("      ■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 11);      printf("       ■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 12);      printf("         ■■■■■■■\n");
+    gotoxy(dinoX, dinoY);         printf("            $$$$$\n");
+    gotoxy(dinoX, dinoY + 1);      printf("           $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 2);      printf("           $$ $$$$$\n");
+    gotoxy(dinoX, dinoY + 3);      printf("           $$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 4);      printf("           $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 5);      printf("     *     $$$$$\n");
+    gotoxy(dinoX, dinoY + 6);      printf("     $      $$$$$\n");
+    gotoxy(dinoX, dinoY + 7);      printf("     $$      $$$$$\n");
+    gotoxy(dinoX, dinoY + 8);      printf("     $$$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 9);      printf("      $$$$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 10);      printf("      $$$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 11);      printf("       $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 12);      printf("         $$$$$$$\n");
 
 
     //발 구르기 구현
