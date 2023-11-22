@@ -409,7 +409,7 @@ int main()
   titleDraw();
   int menuCode = menuDraw();
 		if (menuCode == 0) {
-
+            
 			}
 		else if (menuCode == 1) {
 			charDraw();
