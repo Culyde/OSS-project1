@@ -290,19 +290,19 @@ int charDraw() {
                 printf("오리를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);         printf("          ■■■■■\n");
-                gotoxy(47, dinoY + 1);      printf("         ■■■■■■■\n");
-                gotoxy(47, dinoY + 2);      printf("         ■■ ■■■■■\n");
-                gotoxy(47, dinoY + 3);      printf("         ■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 4);      printf("         ■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 5);      printf("   *     ■■■■■\n");
-                gotoxy(47, dinoY + 6);      printf("   ■      ■■■■■\n");
-                gotoxy(47, dinoY + 7);      printf("   ■■      ■■■■■\n");
-                gotoxy(47, dinoY + 8);      printf("   ■■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 9);      printf("   ■■■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 10);      printf("   ■■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 11);      printf("     ■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 12);      printf("       ■■■■■■■\n");
+                gotoxy(47, dinoY);         printf("          $$$$$\n");
+                gotoxy(47, dinoY + 1);      printf("         $$$$$$$\n");
+                gotoxy(47, dinoY + 2);      printf("         $$ $$$$$\n");
+                gotoxy(47, dinoY + 3);      printf("         $$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 4);      printf("         $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 5);      printf("   *     $$$$$\n");
+                gotoxy(47, dinoY + 6);      printf("   $      $$$$$\n");
+                gotoxy(47, dinoY + 7);      printf("   $$      $$$$$\n");
+                gotoxy(47, dinoY + 8);      printf("   $$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 9);      printf("   $$$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 10);      printf("   $$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 11);      printf("     $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 12);      printf("       $$$$$$$\n");
                 if (keyControl() == SUBMIT)
                     return charChoise = 2;
             }
