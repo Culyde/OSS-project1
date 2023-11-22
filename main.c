@@ -626,7 +626,8 @@ int main() {
 
                 
                 end(tic);
-                system("pause>>null");
+                getchar();
+                
                
             }
         }
