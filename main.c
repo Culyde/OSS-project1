@@ -15,12 +15,13 @@
 #define TREE_Y 25
 
 void setting();
-void gotoxy(int x, int y);
+void gotoxy(int , int);
 void start();
 int game(int);
 void score(int);
 int crashing();
-void end(int);
+int end(int);
+int keyControl();
 
 //공룡 관련 함수
 void draw_Tyrano(int);
@@ -182,7 +183,7 @@ void infoStages() {
     }
 }
 
-void charDraw() {
+int charDraw() {
     system("cls");
     int x = 13, y = 10;
     gotoxy(12, 0);         printf("----------------------------------------------------------------------------------------------");
@@ -211,19 +212,19 @@ void charDraw() {
     gotoxy(11, dinoY + 12);      printf("     $$          ");
 
     gotoxy(53, y + 2);         printf("  2. 오리");
-    gotoxy(47, dinoY);         printf("          ■■■■■\n");
-    gotoxy(47, dinoY + 1);      printf("         ■■■■■■■\n");
-    gotoxy(47, dinoY + 2);      printf("         ■■ ■■■■■\n");
-    gotoxy(47, dinoY + 3);      printf("         ■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 4);      printf("         ■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 5);      printf("   *     ■■■■■\n");
-    gotoxy(47, dinoY + 6);      printf("   ■      ■■■■■\n");
-    gotoxy(47, dinoY + 7);      printf("   ■■      ■■■■■\n");
-    gotoxy(47, dinoY + 8);      printf("   ■■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 9);      printf("   ■■■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 10);      printf("   ■■■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 11);      printf("     ■■■■■■■■■■■■\n");
-    gotoxy(47, dinoY + 12);      printf("       ■■■■■■■\n");
+    gotoxy(47, dinoY);         printf("            $$$$$\n");
+    gotoxy(47, dinoY + 1);      printf("           $$$$$$$\n");
+    gotoxy(47, dinoY + 2);      printf("           $$ $$$$$\n");
+    gotoxy(47, dinoY + 3);      printf("           $$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 4);      printf("           $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 5);      printf("     *     $$$$$\n");
+    gotoxy(47, dinoY + 6);      printf("     $      $$$$$\n");
+    gotoxy(47, dinoY + 7);      printf("     $$      $$$$$\n");
+    gotoxy(47, dinoY + 8);      printf("     $$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 9);      printf("      $$$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 10);      printf("      $$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 11);      printf("       $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 12);      printf("         $$$$$$$\n");
 
     gotoxy(93, y + 2);            printf("  3. 토끼");
     gotoxy(90, dinoY);         printf("       ## ##     \n");
@@ -282,7 +283,6 @@ void charDraw() {
                 gotoxy(47, dinoY + 12);      printf("     $$          ");
 
                 if (keyControl() == SUBMIT)
-
                     return charChoise = 1;
             }
             else if (x == 53) {
@@ -290,19 +290,19 @@ void charDraw() {
                 printf("오리를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);         printf("          ■■■■■\n");
-                gotoxy(47, dinoY + 1);      printf("         ■■■■■■■\n");
-                gotoxy(47, dinoY + 2);      printf("         ■■ ■■■■■\n");
-                gotoxy(47, dinoY + 3);      printf("         ■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 4);      printf("         ■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 5);      printf("   *     ■■■■■\n");
-                gotoxy(47, dinoY + 6);      printf("   ■      ■■■■■\n");
-                gotoxy(47, dinoY + 7);      printf("   ■■      ■■■■■\n");
-                gotoxy(47, dinoY + 8);      printf("   ■■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 9);      printf("   ■■■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 10);      printf("   ■■■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 11);      printf("     ■■■■■■■■■■■■\n");
-                gotoxy(47, dinoY + 12);      printf("       ■■■■■■■\n");
+                gotoxy(47, dinoY);         printf("          $$$$$\n");
+                gotoxy(47, dinoY + 1);      printf("         $$$$$$$\n");
+                gotoxy(47, dinoY + 2);      printf("         $$ $$$$$\n");
+                gotoxy(47, dinoY + 3);      printf("         $$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 4);      printf("         $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 5);      printf("   *     $$$$$\n");
+                gotoxy(47, dinoY + 6);      printf("   $      $$$$$\n");
+                gotoxy(47, dinoY + 7);      printf("   $$      $$$$$\n");
+                gotoxy(47, dinoY + 8);      printf("   $$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 9);      printf("   $$$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 10);      printf("   $$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 11);      printf("     $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 12);      printf("       $$$$$$$\n");
                 if (keyControl() == SUBMIT)
                     return charChoise = 2;
             }
@@ -439,19 +439,19 @@ void draw_Duck(int tic) { //오리 그리기
     int toc = tic % 8;
 
     //몸통
-    gotoxy(dinoX, dinoY);         printf("            ■■■■■\n");
-    gotoxy(dinoX, dinoY + 1);      printf("           ■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 2);      printf("           ■■ ■■■■■\n");
-    gotoxy(dinoX, dinoY + 3);      printf("           ■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 4);      printf("           ■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 5);      printf("     *     ■■■■■\n");
-    gotoxy(dinoX, dinoY + 6);      printf("     ■      ■■■■■\n");
-    gotoxy(dinoX, dinoY + 7);      printf("     ■■      ■■■■■\n");
-    gotoxy(dinoX, dinoY + 8);      printf("     ■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 9);      printf("     ■■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 10);      printf("      ■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 11);      printf("       ■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 12);      printf("         ■■■■■■■\n");
+    gotoxy(dinoX, dinoY);         printf("            $$$$$\n");
+    gotoxy(dinoX, dinoY + 1);      printf("           $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 2);      printf("           $$ $$$$$\n");
+    gotoxy(dinoX, dinoY + 3);      printf("           $$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 4);      printf("           $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 5);      printf("     *     $$$$$\n");
+    gotoxy(dinoX, dinoY + 6);      printf("     $      $$$$$\n");
+    gotoxy(dinoX, dinoY + 7);      printf("     $$      $$$$$\n");
+    gotoxy(dinoX, dinoY + 8);      printf("     $$$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 9);      printf("      $$$$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 10);      printf("      $$$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 11);      printf("       $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 12);      printf("         $$$$$$$\n");
 
 
     //발 구르기 구현
@@ -557,7 +557,7 @@ void score(int tic) { //점수 출력
     printf("score : %4d", tic / 5 * 10); // tic/5 당 10점      //필드 폭 4칸 확보 (n천점까지)
 }
 
-void end(int tic) { //엔딩 화면
+int end(int tic) { //엔딩 화면
     system("cls");
     int a = 10;
     gotoxy(a, a);      printf(" #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
