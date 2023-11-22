@@ -15,12 +15,13 @@
 #define TREE_Y 25
 
 void setting();
-void gotoxy(int x, int y);
+void gotoxy(int , int);
 void start();
 int game(int);
 void score(int);
 int crashing();
-void end(int);
+int end(int);
+int keyControl();
 
 //공룡 관련 함수
 void draw_Tyrano(int);
@@ -182,7 +183,7 @@ void infoStages() {
     }
 }
 
-void charDraw() {
+int charDraw() {
     system("cls");
     int x = 13, y = 10;
     gotoxy(12, 0);         printf("----------------------------------------------------------------------------------------------");
@@ -282,7 +283,6 @@ void charDraw() {
                 gotoxy(47, dinoY + 12);      printf("     $$          ");
 
                 if (keyControl() == SUBMIT)
-
                     return charChoise = 1;
             }
             else if (x == 53) {
@@ -557,7 +557,7 @@ void score(int tic) { //점수 출력
     printf("score : %4d", tic / 5 * 10); // tic/5 당 10점      //필드 폭 4칸 확보 (n천점까지)
 }
 
-void end(int tic) { //엔딩 화면
+int end(int tic) { //엔딩 화면
     system("cls");
     int a = 10;
     gotoxy(a, a);      printf(" #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
