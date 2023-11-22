@@ -2,17 +2,18 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
+
 #define UP 0
 #define DOWN 1
 #define LEFT 2
 #define RIGHT 3
 #define SUBMIT 4
+
 #define DINO_X 0
 #define DINO_Y 15
 #define TREE_X 94
 #define TREE_Y 25
 
-<<<<<<< HEAD
 void setting();
 void gotoxy(int x, int y);
 void start();
@@ -22,9 +23,11 @@ int crashing();
 void end(int);
 
 //공룡 관련 함수
-void draw_dino(int t);
-void earase_dino();
-void earase_foot();
+void draw_Tyrano(int);
+void draw_Duck(int);
+void draw_rabbit(int);
+void erase_dino();
+void erase_foot();
 
 //나무 관련 함수
 void tree();
@@ -35,48 +38,15 @@ void erase_tree();
 int treeX = TREE_X;
 int dinoX = DINO_X;
 int dinoY = DINO_Y;
-
+int charChoise; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
 int key = 0; //키보드 입력 받기
 
-=======
-#define UP 0
-#define DOWN 1
-#define LEFT 2
-#define RIGHT 3
-#define SUBMIT 4
-
-#define DINO_X 0
-#define DINO_Y 15
-#define TREE_X 94
-#define TREE_Y 25
-
-int charChoise; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
-int treeX = TREE_X;
-int dinoX = DINO_X;
-int dinoY = DINO_Y;
-
-void titleDraw();
-void gotoxy();
-void init();
-int menuDraw();
-int keyControl();
-void infoDraw();
->>>>>>> 6aa35af418910785e04ca5a4f691ce7423882960
 void init() {
     system("mode con cols=56 lines=20 | title DINOGAME");
 }
 
 void titleDraw() {
     printf("\n\n\n");
-<<<<<<< HEAD
-    printf("               #######      ##    ##      ##    ######        ######          #         ##        ##  #########\n");
-    printf("               ##     ##    ##    ## #    ##   ##    ##     ##     ##        ###        # #      # #  #\n");
-    printf("               ##      ##   ##    ##  #   ##   ##    ##    ##       ##      ## ##       #  #    #  #  #\n");
-    printf("               ##      ##   ##    ##   #  ##   ##    ##    ##              ##   ##      #   #  #   #  #########\n");
-    printf("               ##      ##   ##    ##   #  ##   ##    ##    ##    #####    #########     #    ##    #  #\n");
-    printf("               ##     ##    ##    ##    # ##   ##    ##     ##     ##    ##       ##    #          #  #\n");
-    printf("               #######      ##    ##     ###    ######       #######    ##         ##   #          #  #########\n");
-=======
     printf("           +=======================================================================================================+\n\n");
     printf("               #######      ##    ##      ##    ######        ######          #         ##        ##  #########\n");
     printf("               ##     ##    ##    ## #    ##   ##    ##     ##     ##        ###        # #      # #  ##\n");
@@ -86,7 +56,6 @@ void titleDraw() {
     printf("               ##     ##    ##    ##    # ##   ##    ##     ##     ##    ##       ##    #          #  ##\n");
     printf("               #######      ##    ##     ###    ######       #######    ##         ##   #          #  #########\n\n");
     printf("           +=======================================================================================================+\n");
->>>>>>> 3e0280174dae6bba0db42856e5f129d838c331a3
 }
 
 void gotoxy(int x, int y) {
@@ -98,89 +67,6 @@ void gotoxy(int x, int y) {
 }
 
 int menuDraw() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    int x = 50, y = 20;
-    gotoxy(x, y);
-    printf("   > GAME START");
-    gotoxy(x, y + 1);
-    printf("     CHARCTERS");
-    gotoxy(x + 2, y + 2);
-    printf("    RECORDS");
-    gotoxy(x + 2, y + 3);
-    printf("   GAME RULE");
-    gotoxy(x + 2, y + 4);
-    printf("     EXIT");
-
-
-    while (1) {
-        int n = keyControl();
-        switch (n) {
-        case UP: {
-            if (y > 20) {
-                gotoxy(x + 3, y);
-                printf(" ");
-                gotoxy(x + 3, --y);
-                printf(">");
-            }
-            break;
-        }
-        case DOWN: {
-            if (y < 24) {
-                gotoxy(x + 3, y);
-                printf(" ");
-                gotoxy(x + 3, ++y);
-                printf(">");
-            }
-            break;
-        }
-        case SUBMIT: {
-            return y - 20;
-        }
-        }
-    }
-
-=======
-	int x = 50, y = 20;
-	gotoxy(x, y);
-	printf("   > GAME START");
-	gotoxy(x, y+1);
-	printf("     CHARCTERS");
-	gotoxy(x+2, y+2);
-	printf("    RECORDS");
-	gotoxy(x + 2, y + 3);
-	printf("   GAME RULE");
-	gotoxy(x+2, y+4);
-	printf("     EXIT");
-
-	while (1) {
-		int n = keyControl();
-		switch (n) {
-		case UP: {
-			if (y > 20) {
-				gotoxy(x+3, y);
-				printf(" ");
-				gotoxy(x+3, --y);
-				printf(">");
-			}
-			break;
-		}
-		case DOWN: {
-			if (y < 24) {
-				gotoxy(x + 3, y);
-				printf(" ");
-				gotoxy(x + 3, ++y);
-				printf(">");
-			}
-			break;
-		}
-		case SUBMIT: {
-			return y - 20;
-			}
-		}
-	}
->>>>>>> 6aa35af418910785e04ca5a4f691ce7423882960
-=======
 
     int x = 50, y = 20;
     gotoxy(x - 5, y - 3);
@@ -231,11 +117,10 @@ int menuDraw() {
         }
     }
 
->>>>>>> 3e0280174dae6bba0db42856e5f129d838c331a3
 }
 
 int keyControl() {
-    char temp = getch(); 
+    char temp = _getch();
 
     if (temp == 'w' || temp == 'W') {
         return UP;
@@ -255,32 +140,46 @@ int keyControl() {
 }
 
 void infoDraw() {
-<<<<<<< HEAD
     system("cls");
     printf("\n\n");
-    printf("                                                           [ 조작법 ]\n\n");
-    printf("                                                        점프 : Space Bar\n\n");
+    printf("                                                          [ 조작법 ]\n\n");
+    printf("                                                       점프 : Space Bar\n\n");
     printf("                       다가오는 장애물을 점프를 통해 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
-    printf("                                스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다.");
+    printf("                             [ 스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다. ]");
 
     while (1) {
         if (keyControl() == SUBMIT) {
             break;
         }
     }
-=======
-	system("cls");
-	printf("\n\n");
-	printf("                                                           [ 조작법 ]\n\n");
-	printf("                                                        점프 : Space Bar\n\n");
-	printf("                       다가오는 장애물을 점프를 통해 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
-	printf("                                스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다.");
-	
-	while (1) {
-		if (keyControl() == SUBMIT) {
-			break;
-		}
-	}
+}
+
+void infoRecords() {
+    system("cls");
+    printf("\n\n");
+    printf("                 1.\n\n");
+    printf("                 2.\n\n");
+    printf("                 3.\n\n");
+    
+    while (1) {
+        if (keyControl() == SUBMIT) {
+            break;
+        }
+    }
+}
+
+void infoStages() {
+    system("cls");
+    printf("\n\n");
+    printf("                    1.사막");
+    printf("                 2.빙하");
+    printf("                 3.도시");
+
+    while (1) {
+        if (keyControl() == SUBMIT) {
+            break;
+        }
+    }
 }
 
 void charDraw() {
@@ -412,7 +311,7 @@ void charDraw() {
                 printf("토끼를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);         printf("       ## ##     \n");
+                gotoxy(47, dinoY);          printf("       ## ##     \n");
                 gotoxy(47, dinoY + 1);      printf("       ## ##    \n");
                 gotoxy(47, dinoY + 2);      printf("       #####   \n");
                 gotoxy(47, dinoY + 3);      printf("      ### ####  \n");
@@ -432,23 +331,41 @@ void charDraw() {
     }
 }
 
-void erase_foot() { //발 지우기
-    gotoxy(dinoX, dinoY + 13);
-    printf("                 \n");
-    printf("                 ");
 
+int game(int tic) { //게임화면 메인 요소
+    score(tic);
+    tree();
+    if (charChoise == 1)
+        draw_Tyrano(tic);
+
+    else if (charChoise == 2)
+        draw_Duck(tic);
+
+    else if (charChoise == 3)
+        draw_rabbit(tic);
+
+    else
+        draw_Tyrano(tic);
+
+    Sleep(20); //0.02초      //딜레이 예상
+    tic++;
+
+    return tic;
 }
 
-void erase_dino() { //공룡 지우기
-    for (int i = 0; i < 24; i++) {
-        gotoxy(dinoX, 6 + i);
-        printf("                             ");
-    }
-    erase_foot();
+int crashing() { //충돌 판정
+    //(가로1 && 가로2) && 세로
+    //가로1: 나무가 가로 11칸보다 뒤에 있음
+    //가로2: 나무가 가로 15칸보다 앞에 있음
+    //가로1 && 가로2: 나무가 가로 11칸과 15칸 사이에 있음
+    //세로: 공룡 발 3칸이 나무 5칸 보다 높이가 같거나 낮을 때
+    if ((dinoX + 2 <= treeX + 2 && dinoX + 14 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+        return -1;
+    else
+        return 0;
 }
 
-
-void draw_Tyrano(int tic){//티라노 그리기
+void draw_Tyrano(int tic) {//티라노 그리기
     int toc = tic % 8;
 
     //몸통
@@ -468,50 +385,53 @@ void draw_Tyrano(int tic){//티라노 그리기
     {
         erase_foot();
         gotoxy(dinoX, dinoY + 13); //발 그리기
-        printf("      $    $$$\n");
-        printf("      $$     ");
+        printf("       $    $$$\n");
+        printf("       $$     ");
     }
     else
     {
         erase_foot();
         gotoxy(dinoX, dinoY + 13); //발 그리기
-        printf("      $$$  $  \n");
-        printf("           $$");
+        printf("       $$$  $  \n");
+        printf("            $$");
     }
 }
 
 void draw_rabbit(int tic) { //토끼 그리기
 
-   int toc = tic % 8;
+    int toc = tic % 8;
 
-   //몸통
-   gotoxy(dinoX, dinoY+4);        printf("        $$ $$     \n");
-   gotoxy(dinoX, dinoY + 5);      printf("        $$ $$    \n");
-   gotoxy(dinoX, dinoY + 6);      printf("        $$$$$$   \n");
-   gotoxy(dinoX, dinoY + 7);      printf("       $$$ $$$$  \n");
-   gotoxy(dinoX, dinoY + 8);      printf("       $$$$$$$   \n");
-   gotoxy(dinoX, dinoY + 9);      printf("      $$$$$$     \n");
-   gotoxy(dinoX, dinoY + 10);     printf(" $$  $$$$$$$$$$$\n");
-   gotoxy(dinoX, dinoY + 11);     printf(" $$$$$$$$$$$    \n");
-   gotoxy(dinoX, dinoY + 12);     printf("  $$$$$$$$$$    \n");
-   gotoxy(dinoX, dinoY + 13);     printf("    $$$$$$$$    \n");
+    //몸통
+    gotoxy(dinoX, dinoY);          printf("        $$ $$  \n");
+    gotoxy(dinoX, dinoY + 1);      printf("        $$ $$  \n");
+    gotoxy(dinoX, dinoY + 2);      printf("        $$ $$  \n");
+    gotoxy(dinoX, dinoY + 3);      printf("        $$ $$   \n");
+    gotoxy(dinoX, dinoY + 4);      printf("        $$$$$$  \n");
+    gotoxy(dinoX, dinoY + 5);      printf("       $$$ $$$$ \n");
+    gotoxy(dinoX, dinoY + 6);      printf("       $$$$$$$ \n");
+    gotoxy(dinoX, dinoY + 7);      printf("      $$$$$$  \n");
+    gotoxy(dinoX, dinoY + 8);      printf(" $$  $$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 9);      printf(" $$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 10);     printf("  $$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 11);     printf("   $$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 12);     printf("    $$$$$$$$\n");
 
 
-   //발 구르기 구현
-   if (toc >= 0 && toc <= 3) //4tic 동안 유지
-   {
-      erase_foot();
-      gotoxy(dinoX, dinoY + 14); //발 그리기
-      printf("     $    $$$    \n");
-      printf("     $$          ");
-   }
-   else
-   {
-      erase_foot();
-      gotoxy(dinoX, dinoY + 14); //발 그리기
-      printf("     $$$  $     \n");
-      printf("          $$    ");
-   }
+    //발 구르기 구현
+    if (toc >= 0 && toc <= 3) //4tic 동안 유지
+    {
+        erase_foot();
+        gotoxy(dinoX, dinoY + 13); //발 그리기
+        printf("     $    $$$\n");
+        printf("     $$    ");
+    }
+    else
+    {
+        erase_foot();
+        gotoxy(dinoX, dinoY + 13); //발 그리기
+        printf("     $$$  $   \n");
+        printf("          $$");
+    }
 }
 
 void draw_Duck(int tic) { //오리 그리기
@@ -551,105 +471,19 @@ void draw_Duck(int tic) { //오리 그리기
     }
 }
 
-int main()
-{
-  titleDraw();
-  int menuCode = menuDraw();
-		if (menuCode == 0) {
-
-			}
-		else if (menuCode == 1) {
-			charDraw();
-		}
-		else if (menuCode == 2) {
-
-		}
-		else if (menuCode == 3) {
-			infoDraw();
-		}
-		else if (menuCode == 4) {
-			return 0;
-		}
-		system("cls");
-	
-
-  menuDraw();
-  keyControl();
-  return 0;
->>>>>>> 6aa35af418910785e04ca5a4f691ce7423882960
-}
-int game(int tic) { //게임화면 메인 요소
-    score(tic);
-    tree();
-    draw_dino(tic);
-
-    Sleep(20); //0.02초      //딜레이 예상
-    tic++;
-
-    return tic;
-}
-
-int crashing() { //충돌 판정   //난이도 '하'
-    //(가로1 && 가로2) && 세로
-    //가로1: 나무가 가로 11칸보다 뒤에 있음
-    //가로2: 나무가 가로 15칸보다 앞에 있음
-    //가로1 && 가로2: 나무가 가로 11칸과 15칸 사이에 있음
-    //세로: 공룡 발 3칸이 나무 5칸 보다 높이가 같거나 낮을 때
-    if ((dinoX + 6 <= treeX + 2 && dinoX + 10 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
-        return -1;
-    else
-        return 0;
-}
-
-void draw_dino(int tic) { //공룡 그리기
-
-    int toc = tic % 8;
-
-    //몸통
-    gotoxy(dinoX, dinoY);         printf("            ■■■■■\n");
-    gotoxy(dinoX, dinoY + 1);      printf("           ■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 2);      printf("           ■■ ■■■■■\n");
-    gotoxy(dinoX, dinoY + 3);      printf("           ■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 4);      printf("           ■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 5);      printf("     *     ■■■■■\n");
-    gotoxy(dinoX, dinoY + 6);      printf("     ■      ■■■■■\n");
-    gotoxy(dinoX, dinoY + 7);      printf("     ■■      ■■■■■\n");
-    gotoxy(dinoX, dinoY + 8);      printf("     ■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 9);      printf("     ■■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 10);      printf("      ■■■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 11);      printf("       ■■■■■■■■■■■■\n");
-    gotoxy(dinoX, dinoY + 12);      printf("         ■■■■■■■\n");
-
-
-    //발 구르기 구현
-    if (toc >= 0 && toc <= 3) //4tic 동안 유지
-    {
-        earase_foot();
-        gotoxy(dinoX, dinoY + 13); //발 그리기
-        printf("         ■    ■■\n");
-        printf("         ■■");
-    }
-    else
-    {
-        earase_foot();
-        gotoxy(dinoX, dinoY + 13); //발 그리기
-        printf("         ■■  ■\n");
-        printf("              ■■");
-    }
-}
-
-void earase_foot() { //발 지우기
+void erase_foot() { //발 지우기
     gotoxy(dinoX, dinoY + 13);
     printf("                 \n");
     printf("                 ");
+
 }
 
-void earase_dino() { //공룡 지우기
+void erase_dino() { //공룡 지우기
     for (int i = 0; i < 24; i++) {
         gotoxy(dinoX, 6 + i);
-        printf("                              ");
+        printf("                             ");
     }
-    earase_foot();
+    erase_foot();
 }
 
 
@@ -695,7 +529,18 @@ void start() { //시작 화면
     while (1) {
         gotoxy(30, 10);
         printf("Press 'Space bar' to start the game");
-        draw_dino(0);
+
+        if (charChoise == 1)
+            draw_Tyrano(0);
+
+        else if (charChoise == 2)
+            draw_Duck(0);
+
+        else if (charChoise == 3)
+            draw_rabbit(0);
+
+        else
+            draw_Tyrano(0);
 
         if (_kbhit()) {
             key = _getch();
@@ -725,6 +570,7 @@ void end(int tic) { //엔딩 화면
 
     gotoxy(40, 20);
     printf("final score : %4d", tic / 5 * 10); //최종 점수
+    return 0;
 }
 
 int main() {
@@ -751,8 +597,8 @@ int main() {
 
                             int h = 0; //점프 높이 초기화
 
-                            while (h < 8) { //y축으로 8칸 상승
-                                earase_dino();
+                            while (h < 9) { //y축으로 8칸 상승
+                                erase_dino();
                                 dinoY--;
                                 tic = game(tic);
                                 crash = crashing();
@@ -767,7 +613,7 @@ int main() {
                                 if (crash == -1)
                                     break;
                                 dinoY++;
-                                earase_dino();
+                                erase_dino();
                                 h--;
                             }
                         }
@@ -778,22 +624,25 @@ int main() {
 
                 }
 
+                
                 end(tic);
-
                 system("pause>>null");
-                return 0;
+               
             }
         }
         else if (menuCode == 1) {
-
+            charDraw();
         }
         else if (menuCode == 2) {
-
+            infoStages();
         }
         else if (menuCode == 3) {
-            infoDraw();
+            infoRecords();
         }
         else if (menuCode == 4) {
+            infoDraw();
+        }
+        else if (menuCode == 5) {
             return 0;
         }
         system("cls");
