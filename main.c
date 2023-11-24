@@ -81,7 +81,7 @@ int menuDraw() {
     gotoxy(x - 5, y + 1);
     printf(" |     CHARACTERS    |");
     gotoxy(x - 5, y + 2);
-    printf(" |     STAGES        |");
+    printf(" |     MAP           |");
     gotoxy(x - 5, y + 3);
     printf(" |     RECORDS       |");
     gotoxy(x - 5, y + 4);
@@ -171,14 +171,147 @@ void infoRecords() {
 
 void infoStages() {
     system("cls");
-    printf("\n\n");
-    printf("                    1.사막");
-    printf("                 2.빙하");
-    printf("                 3.도시");
+    int x = 13, y = 10;
+    gotoxy(12, 0);         printf("------------------------------------------------------------");
+    gotoxy(12, 1);         printf("######    ######              ######             #########  ");
+    gotoxy(12, 2);         printf("##   ### ###  ##             ###  ###            ##     ##  ");
+    gotoxy(12, 3);         printf("##     ###    ##            ###    ###           #########  ");
+    gotoxy(12, 4);         printf("##      #     ##           ############          ##         ");
+    gotoxy(12, 5);         printf("##            ##          ###        ###         ##         ");
+    gotoxy(12, 6);         printf("##            ##         ###          ###        ##         ");  
+    gotoxy(12, 7);         printf("------------------------------------------------------------");
+
+    gotoxy(13, y + 2);            printf("> 1. 티라노");
+    gotoxy(11, dinoY);         printf("        $$$$$$$ \n");
+    gotoxy(11, dinoY + 1);      printf("       $$ $$$$$$\n");
+    gotoxy(11, dinoY + 2);      printf("       $$$$$$$$$\n");
+    gotoxy(11, dinoY + 3);      printf("$      $$$      \n");
+    gotoxy(11, dinoY + 4);      printf("$$     $$$$$$$  \n");
+    gotoxy(11, dinoY + 5);      printf("$$$   $$$$$     \n");
+    gotoxy(11, dinoY + 6);      printf(" $$  $$$$$$$$$$ \n");
+    gotoxy(11, dinoY + 7);      printf(" $$$$$$$$$$$    \n");
+    gotoxy(11, dinoY + 8);      printf("  $$$$$$$$$$    \n");
+    gotoxy(11, dinoY + 9);      printf("    $$$$$$$$    \n");
+    gotoxy(11, dinoY + 10);      printf("     $$$$$$     \n");
+    gotoxy(11, dinoY + 11);      printf("     $    $$$    \n");
+    gotoxy(11, dinoY + 12);      printf("     $$          ");
+
+    gotoxy(53, y + 2);         printf("  2. 오리");
+    gotoxy(47, dinoY);         printf("            $$$$$\n");
+    gotoxy(47, dinoY + 1);      printf("           $$$$$$$\n");
+    gotoxy(47, dinoY + 2);      printf("           $$ $$$$$\n");
+    gotoxy(47, dinoY + 3);      printf("           $$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 4);      printf("           $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 5);      printf("     *     $$$$$\n");
+    gotoxy(47, dinoY + 6);      printf("     $      $$$$$\n");
+    gotoxy(47, dinoY + 7);      printf("     $$      $$$$$\n");
+    gotoxy(47, dinoY + 8);      printf("     $$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 9);      printf("      $$$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 10);      printf("      $$$$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 11);      printf("       $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 12);      printf("         $$$$$$$\n");
+
+    gotoxy(93, y + 2);            printf("  3. 토끼");
+    gotoxy(90, dinoY);         printf("       ## ##     \n");
+    gotoxy(90, dinoY + 1);      printf("       ## ##    \n");
+    gotoxy(90, dinoY + 2);      printf("       #####   \n");
+    gotoxy(90, dinoY + 3);      printf("      ### ####  \n");
+    gotoxy(90, dinoY + 4);      printf("      ########   \n");
+    gotoxy(90, dinoY + 5);      printf("     ######     \n");
+    gotoxy(90, dinoY + 6);      printf("##  ###########\n");
+    gotoxy(90, dinoY + 7);      printf("###########    \n");
+    gotoxy(90, dinoY + 8);      printf(" ##########    \n");
+    gotoxy(90, dinoY + 9);      printf("   ########    \n");
+    gotoxy(90, dinoY + 10);      printf("    #    ###    \n");
+    gotoxy(90, dinoY + 11);      printf("    ##          ");
 
     while (1) {
-        if (keyControl() == SUBMIT) {
+        int n = keyControl();
+        switch (n) {
+        case RIGHT: {
+            if (x < 93 && x >= 13) {
+                gotoxy(x, y + 2);
+                printf(" ");
+                gotoxy(x += 40, y + 2);
+                printf(">");
+            }
             break;
+        }
+        case LEFT: {
+            if (x <= 93 && x > 13) {
+                gotoxy(x, y + 2);
+                printf(" ");
+                gotoxy(x -= 40, y + 2);
+                printf(">");
+            }
+            break;
+        }
+        case SUBMIT: {
+            system("cls");
+            if (x == 13) {
+                gotoxy(47, 5);
+                printf("사막을 선택하셨습니다.");
+                gotoxy(28, 10);
+                printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+                gotoxy(47, dinoY);         printf("        $$$$$$$ \n");
+                gotoxy(47, dinoY + 1);      printf("       $$ $$$$$$\n");
+                gotoxy(47, dinoY + 2);      printf("       $$$$$$$$$\n");
+                gotoxy(47, dinoY + 3);      printf("$      $$$      \n");
+                gotoxy(47, dinoY + 4);      printf("$$     $$$$$$$  \n");
+                gotoxy(47, dinoY + 5);      printf("$$$   $$$$$     \n");
+                gotoxy(47, dinoY + 6);      printf(" $$  $$$$$$$$$$ \n");
+                gotoxy(47, dinoY + 7);      printf(" $$$$$$$$$$$    \n");
+                gotoxy(47, dinoY + 8);      printf("  $$$$$$$$$$    \n");
+                gotoxy(47, dinoY + 9);      printf("    $$$$$$$$    \n");
+                gotoxy(47, dinoY + 10);      printf("     $$$$$$     \n");
+                gotoxy(47, dinoY + 11);      printf("     $    $$$    \n");
+                gotoxy(47, dinoY + 12);      printf("     $$          ");
+
+                if (keyControl() == SUBMIT)
+                    return charChoise = 1;
+            }
+            else if (x == 53) {
+                gotoxy(47, 5);
+                printf("빙하을 선택하셨습니다.");
+                gotoxy(28, 10);
+                printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+                gotoxy(47, dinoY);         printf("          $$$$$\n");
+                gotoxy(47, dinoY + 1);      printf("         $$$$$$$\n");
+                gotoxy(47, dinoY + 2);      printf("         $$ $$$$$\n");
+                gotoxy(47, dinoY + 3);      printf("         $$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 4);      printf("         $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 5);      printf("   *     $$$$$\n");
+                gotoxy(47, dinoY + 6);      printf("   $      $$$$$\n");
+                gotoxy(47, dinoY + 7);      printf("   $$      $$$$$\n");
+                gotoxy(47, dinoY + 8);      printf("   $$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 9);      printf("   $$$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 10);      printf("   $$$$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 11);      printf("     $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 12);      printf("       $$$$$$$\n");
+                if (keyControl() == SUBMIT)
+                    return charChoise = 2;
+            }
+            else if (x == 93) {
+                gotoxy(47, 5);
+                printf("도시를 선택하셨습니다.");
+                gotoxy(28, 10);
+                printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+                gotoxy(47, dinoY);          printf("       ## ##     \n");
+                gotoxy(47, dinoY + 1);      printf("       ## ##    \n");
+                gotoxy(47, dinoY + 2);      printf("       #####   \n");
+                gotoxy(47, dinoY + 3);      printf("      ### ####  \n");
+                gotoxy(47, dinoY + 4);      printf("      ########   \n");
+                gotoxy(47, dinoY + 5);      printf("     ######     \n");
+                gotoxy(47, dinoY + 6);      printf("##  ###########\n");
+                gotoxy(47, dinoY + 7);      printf("###########    \n");
+                gotoxy(47, dinoY + 8);      printf(" ##########    \n");
+                gotoxy(47, dinoY + 9);      printf("   ########    \n");
+                gotoxy(47, dinoY + 10);      printf("    #    ###    \n");
+                gotoxy(47, dinoY + 11);      printf("    ##          ");
+                if (keyControl() == SUBMIT)
+                    return charChoise = 3;
+            }
+        }
         }
     }
 }
