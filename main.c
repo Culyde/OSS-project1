@@ -34,7 +34,9 @@ void erase_foot();
 void tree();
 void draw_tree();
 void erase_tree();
-
+void city();
+void erase_city();
+void draw_city();
 
 int treeX = TREE_X;
 int dinoX = DINO_X;
@@ -170,7 +172,7 @@ void infoRecords() {
     }
 }
 
-void infoStages() {
+int infoStages() {
     system("cls");
     int x = 13, y = 10;
     gotoxy(12, 0);         printf("             ---------------------------------------------------------------------------");
