@@ -438,6 +438,9 @@ int game(int tic) { //게임화면 메인 요소
     else if (stageChoise == 3) {
         city();
     }
+    else{
+      tree();
+    }
     if (charChoise == 1)
         draw_Tyrano(tic);
 
