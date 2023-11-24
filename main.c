@@ -40,6 +40,7 @@ int treeX = TREE_X;
 int dinoX = DINO_X;
 int dinoY = DINO_Y;
 int charChoise; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
+int stageChoise; // 스테이지를 선택했을 때 반환값을 저장하는 전역변수
 int key = 0; //키보드 입력 받기
 
 void init() {
@@ -241,7 +242,7 @@ void infoStages() {
                
 
                 if (keyControl() == SUBMIT)
-                    return charChoise = 1;
+                    return stageChoise = 1;
             }
             else if (x == 53) {
                 gotoxy(47, 5);
@@ -254,7 +255,7 @@ void infoStages() {
                 gotoxy(47, dinoY + 3);      printf("        _/❄❄❄❄❄❄\n");
                
                 if (keyControl() == SUBMIT)
-                    return charChoise = 2;
+                    return stageChoise = 2;
             }
             else if (x == 93) {
                 gotoxy(47, 5);
@@ -267,7 +268,7 @@ void infoStages() {
                 gotoxy(47, dinoY + 3);      printf("       | ## | \n");
                 gotoxy(47, dinoY + 4);      printf("       | ## |  \n");
                 if (keyControl() == SUBMIT)
-                    return charChoise = 3;
+                    return stageChoise = 3;
             }
         }
         }
@@ -425,7 +426,16 @@ int charDraw() {
 
 int game(int tic) { //게임화면 메인 요소
     score(tic);
-    tree();
+
+    if (stageChoise == 1) {
+        tree();
+    }
+    else if (stageChoise == 2){
+        
+    }
+    else if (stageChoise == 3) {
+        city();
+    }
     if (charChoise == 1)
         draw_Tyrano(tic);
 
@@ -601,6 +611,31 @@ void tree() { //나무 오른쪽에서 왼쪽으로 이동
 
     if (treeX == 0)
         treeX = TREE_X; //나무가 왼쪽 끝으로 이동하면 초기화
+}
+
+void draw_city() { //집 그리기
+    gotoxy(treeX + 2, TREE_Y);           printf("____\n");
+    gotoxy(treeX + 1, TREE_Y + 1);      printf("/    \\\n");
+    gotoxy(treeX + 1, TREE_Y + 2);      printf("------\n");
+    gotoxy(treeX + 2, TREE_Y + 3);       printf("|##|\n");
+    gotoxy(treeX + 2, TREE_Y + 4);       printf("|##|");
+}
+
+void erase_city() { //잡 지우기
+    gotoxy(treeX + 3, TREE_Y);         printf("     \n");
+    gotoxy(treeX + 2, TREE_Y + 1);    printf("        \n");
+    gotoxy(treeX + 2, TREE_Y + 2);    printf("       \n");
+    gotoxy(treeX + 3, TREE_Y + 3);     printf("     \n");
+    gotoxy(treeX + 3, TREE_Y + 4);     printf("     ");
+}
+
+void city() { //집 오른쪽에서 왼쪽으로 이동
+    treeX--; //왼쪽으로 한 칸 이동
+    erase_city(); //지우고
+    draw_city(); //그리기
+
+    if (treeX == 0)
+        treeX = TREE_X; //집 왼쪽 끝으로 이동하면 초기화
 }
 
 void setting() {
