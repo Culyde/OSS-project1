@@ -465,8 +465,12 @@ int crashing() { //충돌 판정
     //가로2: 나무가 가로 15칸보다 앞에 있음
     //가로1 && 가로2: 나무가 가로 11칸과 15칸 사이에 있음
     //세로: 공룡 발 3칸이 나무 5칸 보다 높이가 같거나 낮을 때
-    if ((dinoX + 2 <= treeX + 2 && dinoX + 14 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+    if ((dinoX + 2 <= treeX + 2 && dinoX + 14 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2 && charChoise == 1 || charChoise == 2)
         return -1;
+    if (charChoise == 3 && stageChoise == 3) {
+       if((dinoX + 2 <= treeX + 2 && dinoX + 12 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2) //토끼 충돌범위 수정
+        return -1;
+    }
     else
         return 0;
 }
