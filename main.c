@@ -684,6 +684,8 @@ void start() { //시작 화면
 }
 
 void score(int tic) { //점수 출력
+    gotoxy(45, 0);
+    printf("                         ");
     gotoxy(45, 1);
     printf("score : %4d", tic / 5 * 10); // tic/5 당 10점      //필드 폭 4칸 확보 (n천점까지)
 }
