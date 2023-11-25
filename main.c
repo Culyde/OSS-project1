@@ -41,8 +41,8 @@ void draw_city();
 int treeX = TREE_X;
 int dinoX = DINO_X;
 int dinoY = DINO_Y;
-int charChoise; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
-int stageChoise; // 스테이지를 선택했을 때 반환값을 저장하는 전역변수
+int charChoise=1; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
+int stageChoise=1; // 스테이지를 선택했을 때 반환값을 저장하는 전역변수
 int key = 0; //키보드 입력 받기
 
 void init() {
@@ -475,11 +475,47 @@ int crashing() { //충돌 판정
     //가로2: 나무가 가로 15칸보다 앞에 있음
     //가로1 && 가로2: 나무가 가로 11칸과 15칸 사이에 있음
     //세로: 공룡 발 3칸이 나무 5칸 보다 높이가 같거나 낮을 때
-    if ((dinoX + 2 <= treeX + 2 && dinoX + 14 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2 && charChoise == 1 || charChoise == 2)
-        return -1;
-    if (charChoise == 3 && stageChoise == 3) {
-       if((dinoX + 2 <= treeX + 2 && dinoX + 12 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2) //토끼 충돌범위 수정
-        return -1;
+    if (charChoise == 1) {
+        if (stageChoise == 1) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 14 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+        else if (stageChoise == 2) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+        else if (stageChoise == 3) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+    }
+    if (charChoise == 2) {
+        if (stageChoise == 1) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 16 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+        else if (stageChoise == 2) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+        else if (stageChoise == 3) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+    }
+    if (charChoise == 3) {
+        if (stageChoise == 1) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+        else if (stageChoise == 2) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
+        else if (stageChoise == 3) {
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+                return -1;
+        }
     }
     else
         return 0;
@@ -683,9 +719,6 @@ void start() { //시작 화면
 
         else if (charChoise == 3)
             draw_rabbit(0);
-
-        else
-            draw_Tyrano(0);
 
         if (_kbhit()) {
             key = _getch();
