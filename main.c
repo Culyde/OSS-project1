@@ -186,24 +186,24 @@ int infoStages() {
     gotoxy(12, 8);         printf("             ---------------------------------------------------------------------------");
 
     gotoxy(13, y + 2);            printf("> 1. 사막");
-    gotoxy(11, dinoY);          printf("      /\\ \n");
-    gotoxy(11, dinoY + 1);      printf("     /  \\ \n");
-    gotoxy(11, dinoY + 2);      printf("    /    \\ \n");
-    gotoxy(11, dinoY + 3);      printf("   /      \\ \n");
-    gotoxy(11, dinoY + 4);      printf("  \n");
+    gotoxy(11, dinoY);          printf("       ## \n");
+    gotoxy(11, dinoY + 1);      printf("     # ## #\n");
+    gotoxy(11, dinoY + 2);      printf("     ######\n");
+    gotoxy(11, dinoY + 3);      printf("       ##\n");
+    gotoxy(11, dinoY + 4);      printf("       ##");
    
 
     gotoxy(53, y + 2);         printf("  2. 빙하");
-    gotoxy(47, dinoY);         printf("            /❄\n");
-    gotoxy(47, dinoY + 1);      printf("          _/❄❄\n");
-    gotoxy(47, dinoY + 2);      printf("          /❄❄❄❄\n");
-    gotoxy(47, dinoY + 3);      printf("        _/❄❄❄❄❄❄\n");
+   gotoxy(47, dinoY);          printf("           /#\\\n");
+    gotoxy(47, dinoY + 1);      printf("         _/###\\\n");
+    gotoxy(47, dinoY + 2);      printf("        /######\\__\n");
+    gotoxy(47, dinoY + 3);      printf("      _/##########\\\n");
    
 
     gotoxy(93, y + 2);            printf("  3. 도시");
-    gotoxy(90, dinoY);         printf("     ______     \n");
+   gotoxy(90, dinoY);         printf("     ______     \n");
     gotoxy(90, dinoY + 1);      printf("    /      \\    \n");
-    gotoxy(90, dinoY + 2);      printf("    ---------     \n");
+    gotoxy(90, dinoY + 2);      printf("    --------     \n");
     gotoxy(90, dinoY + 3);      printf("     | ## |  \n");
     gotoxy(90, dinoY + 4);      printf("     | ## | \n");
    
@@ -236,12 +236,12 @@ int infoStages() {
                 printf("사막 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);         printf("      /\\ \n");
-                gotoxy(47, dinoY + 1);      printf("     /  \\\n");
-                gotoxy(47, dinoY + 2);      printf("    /    \\\n");
-                gotoxy(47, dinoY + 3);      printf("   /      \\      \n");
-                gotoxy(47, dinoY + 4);      printf(" \n");
-               
+                gotoxy(50, dinoY);          printf("         ## \n");
+                gotoxy(50, dinoY + 1);      printf("       # ## # \n");
+                gotoxy(50, dinoY + 2);      printf("       ######  \n");
+                gotoxy(50, dinoY + 3);      printf("         ##    \n");
+                gotoxy(50, dinoY + 4);      printf("         ##    ");
+
 
                 if (keyControl() == SUBMIT)
                     return stageChoise = 1;
@@ -251,11 +251,11 @@ int infoStages() {
                 printf("빙하 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);         printf("            /❄\n");
-                gotoxy(47, dinoY + 1);      printf("          _/❄❄\n");
-                gotoxy(47, dinoY + 2);      printf("          /❄❄❄❄\n");
-                gotoxy(47, dinoY + 3);      printf("        _/❄❄❄❄❄❄\n");
-               
+                gotoxy(47, dinoY);          printf("             /#\\\n");
+                gotoxy(47, dinoY + 1);      printf("           _/###\\\n");
+                gotoxy(47, dinoY + 2);      printf("          /######\\__\n");
+                gotoxy(47, dinoY + 3);      printf("        _/##########\\\n");
+
                 if (keyControl() == SUBMIT)
                     return stageChoise = 2;
             }
@@ -266,7 +266,7 @@ int infoStages() {
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
                 gotoxy(47, dinoY);          printf("       ______      \n");
                 gotoxy(47, dinoY + 1);      printf("      /      \\   \n");
-                gotoxy(47, dinoY + 2);      printf("      ---------    \n");
+                gotoxy(47, dinoY + 2);      printf("      --------    \n");
                 gotoxy(47, dinoY + 3);      printf("       | ## | \n");
                 gotoxy(47, dinoY + 4);      printf("       | ## |  \n");
                 if (keyControl() == SUBMIT)
