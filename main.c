@@ -741,16 +741,16 @@ void start() { //시작 화면
 }
 
 void score(int tic) { //점수 출력
-    gotoxy(45, 0);
+    gotoxy(91, 0);
     printf("                         ");
-    gotoxy(45, 1);
-    printf("score : %4d", tic / 5 * 10); // tic/5 당 10점      //필드 폭 4칸 확보 (n천점까지)
+    gotoxy(91, 1);
+    printf("# Score : %4d", tic / 5 * 10); // tic/5 당 10점      //필드 폭 4칸 확보 (n천점까지)
 }
 
 int end(int tic) { //엔딩 화면
     system("cls");
     int a = 10;
-    gotoxy(a, a);      printf(" #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
+    gotoxy(a, a);       printf(" #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
     gotoxy(a, a + 1);   printf("##   ##    ####   ### ###   ##  ##           ##   ##   ##  ##   ##  ##   ##  ##  \n");
     gotoxy(a, a + 2);   printf("##        ##  ##  #######   ##               ##   ##   ##  ##   ##       ##  ##  \n");
     gotoxy(a, a + 3);   printf("##        ######  ## # ##   ####             ##   ##   ##  ##   ####     #####   \n");
@@ -760,6 +760,25 @@ int end(int tic) { //엔딩 화면
 
     gotoxy(40, 20);
     printf("final score : %4d", tic / 5 * 10); //최종 점수
+
+    now_score = tic / 5 * 10;
+    last_score = now_score; //게임점수를 옮김 
+
+    if (now_score > best_score) { //최고기록 갱신시 
+        FILE* file = fopen("score.dat", "wt"); //score.dat에 점수 저장                
+
+        gotoxy(36, 22); printf("   ★★★ BEST SCORE! ★★★     ");
+
+        if (file == 0) { //파일 에러메세지  
+            gotoxy(0, 0);
+            printf("FILE ERROR: SYSTEM CANNOT WRITE BEST SCORE ON \"SCORE.DAT\"");
+        }
+        else {
+            fprintf(file, "%d", now_score);
+            fclose(file); 
+        }
+    }
+    
     return 0;
 }
 
