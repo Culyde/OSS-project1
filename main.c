@@ -22,6 +22,7 @@ void score(int);
 int crashing();
 int end(int);
 int keyControl();
+void reset();
 
 //공룡 관련 함수
 void draw_Tyrano(int);
@@ -44,6 +45,9 @@ int dinoY = DINO_Y;
 int charChoise=1; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
 int stageChoise=1; // 스테이지를 선택했을 때 반환값을 저장하는 전역변수
 int key = 0; //키보드 입력 받기
+int now_score;
+int last_score = 0;
+int best_score = 0;
 
 void init() {
     system("mode con cols=56 lines=20 | title DINOGAME");
@@ -469,15 +473,10 @@ int game(int tic) { //게임화면 메인 요소
     return tic;
 }
 
-int crashing() { //충돌 판정
-    //(가로1 && 가로2) && 세로
-    //가로1: 나무가 가로 11칸보다 뒤에 있음
-    //가로2: 나무가 가로 15칸보다 앞에 있음
-    //가로1 && 가로2: 나무가 가로 11칸과 15칸 사이에 있음
-    //세로: 공룡 발 3칸이 나무 5칸 보다 높이가 같거나 낮을 때
+int crashing() { 
     if (charChoise == 1) {
         if (stageChoise == 1) {
-            if ((dinoX + 2 <= treeX + 2 && dinoX + 14 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+            if ((/*뒤에 닿는 판정*/dinoX + 2 <= treeX + 2 && /*앞에닿는 판정*/ dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
                 return -1;
         }
         else if (stageChoise == 2) {
@@ -505,7 +504,7 @@ int crashing() { //충돌 판정
     }
     if (charChoise == 3) {
         if (stageChoise == 1) {
-            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 13 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
                 return -1;
         }
         else if (stageChoise == 2) {
@@ -519,6 +518,17 @@ int crashing() { //충돌 판정
     }
     else
         return 0;
+}
+
+void reset(void) {
+
+    FILE* file = fopen("score.dat", "rt"); // score.dat파일을 연결 
+    if (file == 0) { best_score = 0; } //파일이 없으면 걍 최고점수에 0을 넣음 
+    else {
+        fscanf(file, "%d", &best_score); // 파일이 열리면 최고점수를 불러옴 
+        fclose(file); //파일 닫음 
+    }
+    now_score = 0;
 }
 
 void draw_Tyrano(int tic) {//티라노 그리기
