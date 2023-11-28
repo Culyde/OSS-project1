@@ -90,12 +90,10 @@ int menuDraw() {
     gotoxy(x - 5, y + 2);
     printf(" |     STAGES        |");
     gotoxy(x - 5, y + 3);
-    printf(" |     RECORDS       |");
-    gotoxy(x - 5, y + 4);
     printf(" |     GAME RULE     |");
-    gotoxy(x - 5, y + 5);
+    gotoxy(x - 5, y + 4);
     printf(" |     E X I T       |");
-    gotoxy(x - 5, y + 6);
+    gotoxy(x - 5, y + 5);
     printf(" +-------------------+");
 
     while (1) {
@@ -155,20 +153,6 @@ void infoDraw() {
     printf("                       다가오는 장애물을 점프를 통해 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
     printf("                             [ 스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다. ]");
 
-    while (1) {
-        if (keyControl() == SUBMIT) {
-            break;
-        }
-    }
-}
-
-void infoRecords() {
-    system("cls");
-    printf("\n\n");
-    printf("                 1.\n\n");
-    printf("                 2.\n\n");
-    printf("                 3.\n\n");
-    
     while (1) {
         if (keyControl() == SUBMIT) {
             break;
@@ -849,12 +833,9 @@ int main() {
             infoStages();
         }
         else if (menuCode == 3) {
-            infoRecords();
-        }
-        else if (menuCode == 4) {
             infoDraw();
         }
-        else if (menuCode == 5) {
+        else if (menuCode == 4) {
             return 0;
         }
         system("cls");
