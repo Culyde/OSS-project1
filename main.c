@@ -109,7 +109,7 @@ int menuDraw() {
             break;
         }
         case DOWN: {
-            if (y < 25) {
+            if (y < 24) {
                 gotoxy(x, y);
                 printf(" ");
                 gotoxy(x, ++y);
