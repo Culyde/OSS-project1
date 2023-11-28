@@ -823,7 +823,7 @@ int main() {
 
                 
                 end(tic);
-                getchar();
+                while(getchar() != '\n');
                 
                
             }
