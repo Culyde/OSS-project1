@@ -441,8 +441,10 @@ int charDraw() {
 
 
 int game(int tic) { //게임화면 메인 요소
+    reset();
     score(tic);
-
+    gotoxy(69, 1);
+    printf("# Best Score : %d /", best_score);
     if (stageChoise == 1) {
         tree();
     }
