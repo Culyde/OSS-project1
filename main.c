@@ -90,10 +90,12 @@ int menuDraw() {
     gotoxy(x - 5, y + 2);
     printf(" |     STAGES        |");
     gotoxy(x - 5, y + 3);
-    printf(" |     GAME RULE     |");
+    printf(" |     RECORDS       |");
     gotoxy(x - 5, y + 4);
-    printf(" |     E X I T       |");
+    printf(" |     GAME RULE     |");
     gotoxy(x - 5, y + 5);
+    printf(" |     E X I T       |");
+    gotoxy(x - 5, y + 6);
     printf(" +-------------------+");
 
     while (1) {
@@ -159,6 +161,21 @@ void infoDraw() {
         }
     }
 }
+
+void infoRecords() {
+    system("cls");
+    printf("\n\n");
+    printf("                 1.\n\n");
+    printf("                 2.\n\n");
+    printf("                 3.\n\n");
+    
+    while (1) {
+        if (keyControl() == SUBMIT) {
+            break;
+        }
+    }
+}
+
 int infoStages() {
     system("cls");
     int x = 13, y = 10;
@@ -424,8 +441,10 @@ int charDraw() {
 
 
 int game(int tic) { //게임화면 메인 요소
+    reset();
     score(tic);
-
+    gotoxy(69, 1);
+    printf("# Best Score : %d /", best_score);
     if (stageChoise == 1) {
         tree();
     }
@@ -830,9 +849,12 @@ int main() {
             infoStages();
         }
         else if (menuCode == 3) {
-            infoDraw();
+            infoRecords();
         }
         else if (menuCode == 4) {
+            infoDraw();
+        }
+        else if (menuCode == 5) {
             return 0;
         }
         system("cls");
