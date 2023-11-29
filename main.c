@@ -15,7 +15,7 @@
 #define TREE_Y 25
 
 void setting();
-void gotoxy(int , int);
+void gotoxy(int, int);
 void start();
 int game(int);
 void score(int);
@@ -43,8 +43,8 @@ void draw_city();
 int treeX = TREE_X;
 int dinoX = DINO_X;
 int dinoY = DINO_Y;
-int charChoise=1; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
-int stageChoise=1; // 스테이지를 선택했을 때 반환값을 저장하는 전역변수
+int charChoise = 1; // 캐릭터를 선택했을 때 반환값을 저장하는 전역변수
+int stageChoise = 1; // 스테이지를 선택했을 때 반환값을 저장하는 전역변수
 int key = 0; //키보드 입력 받기
 int now_score;
 int last_score = 0;
@@ -182,22 +182,22 @@ int infoStages() {
     gotoxy(11, dinoY + 2);      printf("     ######\n");
     gotoxy(11, dinoY + 3);      printf("       ##\n");
     gotoxy(11, dinoY + 4);      printf("       ##");
-   
+
 
     gotoxy(53, y + 2);         printf("  2. 빙하");
-   gotoxy(47, dinoY);          printf("           /#\\\n");
+    gotoxy(47, dinoY);          printf("           /#\\\n");
     gotoxy(47, dinoY + 1);      printf("         _/###\\\n");
     gotoxy(47, dinoY + 2);      printf("        /######\\__\n");
     gotoxy(47, dinoY + 3);      printf("      _/##########\\\n");
-   
+
 
     gotoxy(93, y + 2);            printf("  3. 도시");
-   gotoxy(90, dinoY);         printf("     ______     \n");
+    gotoxy(90, dinoY);         printf("     ______     \n");
     gotoxy(90, dinoY + 1);      printf("    /      \\    \n");
     gotoxy(90, dinoY + 2);      printf("    --------     \n");
     gotoxy(90, dinoY + 3);      printf("     | ## |  \n");
     gotoxy(90, dinoY + 4);      printf("     | ## | \n");
-   
+
 
     while (1) {
         int n = keyControl();
@@ -426,7 +426,6 @@ int charDraw() {
     }
 }
 
-
 int game(int tic) { //게임화면 메인 요소
     reset();
     score(tic);
@@ -437,14 +436,14 @@ int game(int tic) { //게임화면 메인 요소
     if (stageChoise == 1) {
         tree();
     }
-    else if (stageChoise == 2){
-        
+    else if (stageChoise == 2) {
+
     }
     else if (stageChoise == 3) {
         city();
     }
-    else{
-      tree();
+    else {
+        tree();
     }
     if (charChoise == 1)
         draw_Tyrano(tic);
@@ -464,7 +463,7 @@ int game(int tic) { //게임화면 메인 요소
     return tic;
 }
 
-int crashing() { 
+int crashing() {
     if (charChoise == 1) {
         if (stageChoise == 1) {
             if ((/*뒤에 닿는 판정*/dinoX + 2 <= treeX + 2 && /*앞에닿는 판정*/ dinoX + 16 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
@@ -514,7 +513,9 @@ int crashing() {
 void reset(void) {
 
     FILE* file = fopen("score.dat", "rt"); // score.dat파일을 연결 
-    if (file == 0) { best_score = 0; } //파일이 없으면 걍 최고점수에 0을 넣음 
+    if (file == 0) { //파일이 없으면 걍 최고점수에 0을 넣음 
+        best_score = 0; 
+    } 
     else {
         fscanf(file, "%d", &best_score); // 파일이 열리면 최고점수를 불러옴 
         fclose(file); //파일 닫음 
@@ -642,7 +643,6 @@ void erase_dino() { //공룡 지우기
     }
     erase_foot();
 }
-
 
 void draw_tree() { //나무 그리기
     gotoxy(treeX + 2, TREE_Y);         printf("##\n");
@@ -781,10 +781,11 @@ void start() { //시작 화면
 }
 
 void score(int tic) { //점수 출력
-     gotoxy(86, 0);
+    gotoxy(86, 0);
     printf("               ");
     gotoxy(86, 1);
     printf(" # Score : %d", tic / 5 * 10); // tic/5 당 10점      //필드 폭 4칸 확보 (n천점까지)
+    temp = tic / 5 * 10;
 }
 
 int end(int tic) { //엔딩 화면
@@ -815,10 +816,10 @@ int end(int tic) { //엔딩 화면
         }
         else {
             fprintf(file, "%d", now_score);
-            fclose(file); 
+            fclose(file);
         }
     }
-    
+
     return 0;
 }
 
@@ -873,11 +874,11 @@ int main() {
 
                 }
 
-                
+
                 end(tic);
                 while(getchar() != '\n');
-                
-               
+
+
             }
         }
         else if (menuCode == 1) {
