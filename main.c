@@ -23,6 +23,7 @@ int crashing();
 int end(int);
 int keyControl();
 void reset();
+void speedControl();
 
 //공룡 관련 함수
 void draw_Tyrano(int);
@@ -48,6 +49,8 @@ int key = 0; //키보드 입력 받기
 int now_score;
 int last_score = 0;
 int best_score = 0;
+int temp;
+int treeDecrement = 1;
 
 void init() {
     system("mode con cols=56 lines=20 | title DINOGAME");
@@ -464,7 +467,7 @@ int game(int tic) { //게임화면 메인 요소
 int crashing() { 
     if (charChoise == 1) {
         if (stageChoise == 1) {
-            if ((/*뒤에 닿는 판정*/dinoX + 2 <= treeX + 2 && /*앞에닿는 판정*/ dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+            if ((/*뒤에 닿는 판정*/dinoX + 2 <= treeX + 2 && /*앞에닿는 판정*/ dinoX + 16 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
                 return -1;
         }
         else if (stageChoise == 2) {
@@ -650,20 +653,53 @@ void draw_tree() { //나무 그리기
 }
 
 void erase_tree() { //나무 지우기
-    gotoxy(treeX + 3, TREE_Y);        printf("  \n");
-    gotoxy(treeX + 1, TREE_Y + 1);   printf("      \n");
-    gotoxy(treeX + 1, TREE_Y + 2);   printf("      \n");
-    gotoxy(treeX + 3, TREE_Y + 3);     printf("  \n");
-    gotoxy(treeX + 3, TREE_Y + 4);      printf("  ");
+    if (temp < 950) {
+        gotoxy(treeX + 3, TREE_Y);        printf("   \n");
+        gotoxy(treeX + 1, TREE_Y + 1);   printf("       \n");
+        gotoxy(treeX + 1, TREE_Y + 2);   printf("       \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("   \n");
+        gotoxy(treeX + 3, TREE_Y + 4);      printf("   ");
+    }
+    else if (temp >= 950 && temp <1350) {
+        gotoxy(treeX + 3, TREE_Y);        printf("      \n");
+        gotoxy(treeX + 1, TREE_Y + 1);   printf("          \n");
+        gotoxy(treeX + 1, TREE_Y + 2);   printf("          \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("      \n");
+        gotoxy(treeX + 3, TREE_Y + 4);      printf("      ");
+         }
+    else if (temp >= 1350) {
+        gotoxy(treeX + 3, TREE_Y);        printf("       \n");
+        gotoxy(treeX + 1, TREE_Y + 1);   printf("           \n");
+        gotoxy(treeX + 1, TREE_Y + 2);   printf("           \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("       \n");
+        gotoxy(treeX + 3, TREE_Y + 4);      printf("       ");
+    }
 }
 
 void tree() { //나무 오른쪽에서 왼쪽으로 이동
-    treeX--; //왼쪽으로 한 칸 이동
+    
+    treeX -= treeDecrement; //왼쪽으로 한 칸 이동
     erase_tree(); //지우고
     draw_tree(); //그리기
 
-    if (treeX == 0)
+    speedControl();
+}
+
+void speedControl() {
+    if (treeX <= 0)
         treeX = TREE_X; //나무가 왼쪽 끝으로 이동하면 초기화
+    if (temp == 550) {
+        treeDecrement = 2; //속도 증가
+    }
+    if (temp == 950) {
+        treeDecrement = 3; //속도 증가
+    }
+    if (temp == 1350) {
+        treeDecrement = 4; //속도 증가
+    }
+    if (temp == 1850) {
+        treeDecrement = 5; //속도 증가
+    }
 }
 
 void draw_city() { //집 그리기
@@ -675,20 +711,36 @@ void draw_city() { //집 그리기
 }
 
 void erase_city() { //잡 지우기
-    gotoxy(treeX + 3, TREE_Y);         printf("     \n");
-    gotoxy(treeX + 2, TREE_Y + 1);    printf("        \n");
-    gotoxy(treeX + 2, TREE_Y + 2);    printf("       \n");
-    gotoxy(treeX + 3, TREE_Y + 3);     printf("     \n");
-    gotoxy(treeX + 3, TREE_Y + 4);     printf("     ");
+    if (temp < 950) {
+        gotoxy(treeX + 3, TREE_Y);         printf("     \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("        \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("       \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("     \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("     ");
+    }
+    else if (temp >= 950 && temp < 1350) {
+        gotoxy(treeX + 3, TREE_Y);         printf("      \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("         \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("        \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("      \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("      ");
+    }
+    else if (temp >= 1350) {
+        gotoxy(treeX + 3, TREE_Y);         printf("        \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("           \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("          \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("        ");
+    }
 }
 
 void city() { //집 오른쪽에서 왼쪽으로 이동
-    treeX--; //왼쪽으로 한 칸 이동
+    
+    treeX -= treeDecrement; //왼쪽으로 한 칸 이동
     erase_city(); //지우고
     draw_city(); //그리기
 
-    if (treeX == 0)
-        treeX = TREE_X; //집 왼쪽 끝으로 이동하면 초기화
+    speedControl();
 }
 
 void setting() {
