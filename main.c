@@ -39,6 +39,9 @@ void erase_tree();
 void city();
 void erase_city();
 void draw_city();
+void Snowman();
+void draw_Snowman();
+void erase_Snowman();
 
 int treeX = TREE_X;
 int dinoX = DINO_X;
@@ -177,27 +180,43 @@ int infoStages() {
     gotoxy(12, 8);         printf("             ---------------------------------------------------------------------------");
 
     gotoxy(13, y + 2);            printf("> 1. 사막");
-    gotoxy(11, dinoY);          printf("       ## \n");
-    gotoxy(11, dinoY + 1);      printf("     # ## #\n");
-    gotoxy(11, dinoY + 2);      printf("     ######\n");
-    gotoxy(11, dinoY + 3);      printf("       ##\n");
-    gotoxy(11, dinoY + 4);      printf("       ##");
+    gotoxy(19, dinoY);                  printf("#\n");
+    gotoxy(18, dinoY + 1);             printf("###\n");
+    gotoxy(17, dinoY + 2);            printf("#####\n");
+    gotoxy(16, dinoY + 3);           printf("#######\n");
+    gotoxy(15, dinoY + 4);          printf("#########\n");
+    gotoxy(14, dinoY + 5);         printf("###########\n");
+    gotoxy(13, dinoY + 6);        printf("#############\n");
+    gotoxy(12, dinoY + 7);       printf("###############\n");
+    gotoxy(10, dinoY + 8);     printf("###################\n");
 
 
-    gotoxy(53, y + 2);         printf("  2. 빙하");
-    gotoxy(47, dinoY);          printf("           /#\\\n");
-    gotoxy(47, dinoY + 1);      printf("         _/###\\\n");
-    gotoxy(47, dinoY + 2);      printf("        /######\\__\n");
-    gotoxy(47, dinoY + 3);      printf("      _/##########\\\n");
+    gotoxy(51, y + 2);         printf(" 2. 겨울");
+    gotoxy(35, dinoY);          printf("     *     *   *   *    *   *        *    *\n");
+    gotoxy(34, dinoY + 1);       printf("*  *    *   *       |  *   *    *      *\n");
+    gotoxy(38, dinoY + 2);           printf("*  *   *   *   / \\      *    *        *\n");
+    gotoxy(35, dinoY + 3);        printf("     *   *  *  * /   \\  *      *     * \n");
+    gotoxy(37, dinoY + 4);          printf("*    *    *   /     \\  *     *   *  *  \n");
+    gotoxy(36, dinoY + 5);         printf(" *  *    *    /       \\   *     *    *   \n");
+    gotoxy(35, dinoY + 6);        printf("  *    *    * /         \\ *   *   *  ");
+    gotoxy(34, dinoY + 7);       printf("*    *   *    /^-^-^-^-^-^\\   *  *    *    \n");
+    gotoxy(35, dinoY + 8);       printf("                   || \n");
+    gotoxy(35, dinoY + 9);       printf("                   ||\n");
+    gotoxy(36, dinoY + 10);       printf("                  JJ           \n");
 
 
-    gotoxy(93, y + 2);            printf("  3. 도시");
-    gotoxy(90, dinoY);         printf("     ______     \n");
-    gotoxy(90, dinoY + 1);      printf("    /      \\    \n");
-    gotoxy(90, dinoY + 2);      printf("    --------     \n");
-    gotoxy(90, dinoY + 3);      printf("     | ## |  \n");
-    gotoxy(90, dinoY + 4);      printf("     | ## | \n");
 
+    gotoxy(92, y + 2);            printf("  3. 도시");
+    gotoxy(88, dinoY);          printf("            ____\n");
+    gotoxy(89, dinoY + 1);       printf("___________|  |__\n");
+    gotoxy(88, dinoY + 2);      printf("/_________________\\\n");
+    gotoxy(87, dinoY + 3);     printf("/___________________\\\n");
+    gotoxy(86, dinoY + 4);    printf("/_____________________\\\n");
+    gotoxy(88, dinoY + 5);      printf("|   ___     ___   |\n");
+    gotoxy(88, dinoY + 6);      printf("|  |___|   |___|  |\n");
+    gotoxy(88, dinoY + 7);      printf("|   ___     ___   |\n");
+    gotoxy(88, dinoY + 8);      printf("|  |___|   |___|  |\n");
+    gotoxy(88, dinoY + 9);     printf("|_________________|\n");
 
     while (1) {
         int n = keyControl();
@@ -242,10 +261,10 @@ int infoStages() {
                 printf("빙하 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);          printf("             /#\\\n");
-                gotoxy(47, dinoY + 1);      printf("           _/###\\\n");
-                gotoxy(47, dinoY + 2);      printf("          /######\\__\n");
-                gotoxy(47, dinoY + 3);      printf("        _/##########\\\n");
+                gotoxy(47, dinoY);          printf("         _==_\n");
+                gotoxy(47, dinoY + 1);      printf("        (o o )\n");
+                gotoxy(47, dinoY + 2);      printf("        =(  )=\n");
+                gotoxy(47, dinoY + 3);      printf("        -- --\n");
 
                 if (keyControl() == SUBMIT)
                     return stageChoise = 2;
@@ -437,7 +456,7 @@ int game(int tic) { //게임화면 메인 요소
         tree();
     }
     else if (stageChoise == 2) {
-
+        Snowman();
     }
     else if (stageChoise == 3) {
         city();
@@ -514,8 +533,8 @@ void reset(void) {
 
     FILE* file = fopen("score.dat", "rt"); // score.dat파일을 연결 
     if (file == 0) { //파일이 없으면 걍 최고점수에 0을 넣음 
-        best_score = 0; 
-    } 
+        best_score = 0;
+    }
     else {
         fscanf(file, "%d", &best_score); // 파일이 열리면 최고점수를 불러옴 
         fclose(file); //파일 닫음 
@@ -645,7 +664,7 @@ void erase_dino() { //공룡 지우기
 }
 
 void draw_tree() { //나무 그리기
-    gotoxy(treeX + 2, TREE_Y);         printf("##\n");
+    gotoxy(treeX + 2, TREE_Y);          printf("##\n");
     gotoxy(treeX, TREE_Y + 1);        printf("# ## #\n");
     gotoxy(treeX, TREE_Y + 2);        printf("######\n");
     gotoxy(treeX + 2, TREE_Y + 3);      printf("##\n");
@@ -660,13 +679,13 @@ void erase_tree() { //나무 지우기
         gotoxy(treeX + 3, TREE_Y + 3);     printf("   \n");
         gotoxy(treeX + 3, TREE_Y + 4);      printf("   ");
     }
-    else if (temp >= 950 && temp <1350) {
+    else if (temp >= 950 && temp < 1350) {
         gotoxy(treeX + 3, TREE_Y);        printf("      \n");
         gotoxy(treeX + 1, TREE_Y + 1);   printf("          \n");
         gotoxy(treeX + 1, TREE_Y + 2);   printf("          \n");
         gotoxy(treeX + 3, TREE_Y + 3);     printf("      \n");
         gotoxy(treeX + 3, TREE_Y + 4);      printf("      ");
-         }
+    }
     else if (temp >= 1350) {
         gotoxy(treeX + 3, TREE_Y);        printf("       \n");
         gotoxy(treeX + 1, TREE_Y + 1);   printf("           \n");
@@ -677,7 +696,7 @@ void erase_tree() { //나무 지우기
 }
 
 void tree() { //나무 오른쪽에서 왼쪽으로 이동
-    
+
     treeX -= treeDecrement; //왼쪽으로 한 칸 이동
     erase_tree(); //지우고
     draw_tree(); //그리기
@@ -710,7 +729,7 @@ void draw_city() { //집 그리기
     gotoxy(treeX + 2, TREE_Y + 4);       printf("|##|");
 }
 
-void erase_city() { //잡 지우기
+void erase_city() { //집 지우기
     if (temp < 950) {
         gotoxy(treeX + 3, TREE_Y);         printf("     \n");
         gotoxy(treeX + 2, TREE_Y + 1);    printf("        \n");
@@ -735,13 +754,51 @@ void erase_city() { //잡 지우기
 }
 
 void city() { //집 오른쪽에서 왼쪽으로 이동
-    
+
     treeX -= treeDecrement; //왼쪽으로 한 칸 이동
     erase_city(); //지우고
     draw_city(); //그리기
 
     speedControl();
 }
+void draw_Snowman() { //눈사람 그리기
+    gotoxy(treeX + 2, TREE_Y);            printf("_==_\n");
+    gotoxy(treeX + 1, TREE_Y + 1);       printf("(o o )\n");
+    gotoxy(treeX + 1, TREE_Y + 2);       printf("=(  )=\n");
+    gotoxy(treeX + 2, TREE_Y + 3);        printf("-- --\n");
+}
+
+void erase_Snowman() { //눈사람 지우기
+    if (temp < 950) {
+        gotoxy(treeX + 3, TREE_Y);         printf("       \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("         \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("         \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
+    }
+    else if (temp >= 950 && temp < 1350) {
+        gotoxy(treeX + 3, TREE_Y);         printf("      \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("         \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("        \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("      \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("      ");
+    }
+    else if (temp >= 1350) {
+        gotoxy(treeX + 3, TREE_Y);         printf("        \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("           \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("          \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("        ");
+    }
+}
+void Snowman() { //눈사람 오른쪽에서 왼쪽으로 이동
+
+    treeX -= treeDecrement; //왼쪽으로 한 칸 이동
+    erase_Snowman(); //지우고
+    draw_Snowman(); //그리기
+
+    speedControl();
+}
+
 
 void setting() {
     //콘솔창 설정
@@ -876,7 +933,7 @@ int main() {
 
 
                 end(tic);
-                while(getchar() != '\n');
+                while (getchar() != '\n');
 
 
             }
