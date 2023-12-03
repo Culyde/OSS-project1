@@ -191,7 +191,7 @@ int infoStages() {
     gotoxy(10, dinoY + 8);     printf("###################\n");
 
 
-    gotoxy(51, y + 2);         printf(" 2. 겨울");
+    gotoxy(51, y + 2);         printf("    2. 겨울");
     gotoxy(35, dinoY);          printf("     *     *   *   *    *   *        *    *\n");
     gotoxy(34, dinoY + 1);       printf("*  *    *   *       |  *   *    *      *\n");
     gotoxy(38, dinoY + 2);           printf("*  *   *   *   / \\      *    *        *\n");
@@ -206,7 +206,7 @@ int infoStages() {
 
 
 
-    gotoxy(92, y + 2);            printf("  3. 도시");
+    gotoxy(92, y + 2);            printf("   3. 도시");
     gotoxy(88, dinoY);          printf("            ____\n");
     gotoxy(89, dinoY + 1);       printf("___________|  |__\n");
     gotoxy(88, dinoY + 2);      printf("/_________________\\\n");
@@ -258,7 +258,7 @@ int infoStages() {
             }
             else if (x == 53) {
                 gotoxy(47, 5);
-                printf("빙하 맵을 선택하셨습니다.");
+                printf("겨울 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
                 gotoxy(47, dinoY);          printf("         _==_\n");
@@ -763,31 +763,33 @@ void city() { //집 오른쪽에서 왼쪽으로 이동
 }
 void draw_Snowman() { //눈사람 그리기
     gotoxy(treeX + 2, TREE_Y);            printf("_==_\n");
-    gotoxy(treeX + 1, TREE_Y + 1);       printf("(o o )\n");
-    gotoxy(treeX + 1, TREE_Y + 2);       printf("=(  )=\n");
-    gotoxy(treeX + 2, TREE_Y + 3);        printf("-- --\n");
+    gotoxy(treeX + 1, TREE_Y + 1);       printf("(o<o )\n");
+    gotoxy(treeX + 1, TREE_Y + 2);       printf("=(   )=\n");
+    gotoxy(treeX + 2, TREE_Y + 3);        printf("(    )\n");
+    gotoxy(treeX + 1, TREE_Y + 4);       printf("(      )");
 }
 
 void erase_Snowman() { //눈사람 지우기
     if (temp < 950) {
         gotoxy(treeX + 3, TREE_Y);         printf("       \n");
         gotoxy(treeX + 2, TREE_Y + 1);    printf("         \n");
-        gotoxy(treeX + 2, TREE_Y + 2);    printf("         \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("          \n");
+        gotoxy(treeX + 2, TREE_Y + 3);    printf("         \n");
+        gotoxy(treeX + 2, TREE_Y + 4);    printf("          ");
     }
     else if (temp >= 950 && temp < 1350) {
         gotoxy(treeX + 3, TREE_Y);         printf("      \n");
         gotoxy(treeX + 2, TREE_Y + 1);    printf("         \n");
-        gotoxy(treeX + 2, TREE_Y + 2);    printf("        \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("      \n");
-        gotoxy(treeX + 3, TREE_Y + 4);     printf("      ");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("         \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
+        gotoxy(treeX + 2, TREE_Y + 4);    printf("           ");
     }
     else if (temp >= 1350) {
         gotoxy(treeX + 3, TREE_Y);         printf("        \n");
         gotoxy(treeX + 2, TREE_Y + 1);    printf("           \n");
-        gotoxy(treeX + 2, TREE_Y + 2);    printf("          \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
-        gotoxy(treeX + 3, TREE_Y + 4);     printf("        ");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("           \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("         \n");
+        gotoxy(treeX + 2, TREE_Y + 4);    printf("            ");
     }
 }
 void Snowman() { //눈사람 오른쪽에서 왼쪽으로 이동
