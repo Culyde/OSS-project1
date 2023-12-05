@@ -893,8 +893,8 @@ int main() {
                 int tic = 0; //게임 내 시간 단위이자 점수 결정 요소
                 int crash = 0; //충돌 체크
 
-                setting();
                 start();
+                setting();
 
                 while (1) {
 
