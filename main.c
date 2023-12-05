@@ -59,14 +59,8 @@ int best_score = 0;
 int temp;
 int treeDecrement = 1;
 
-void init() {
-    system("mode con cols=56 lines=20 | title DINOGAME");
-}
-
 void pushpull() {
-    system("cls");
     PlaySound(TEXT("dinogamebgm.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-
 }
 
 void titleDraw() {
@@ -207,12 +201,12 @@ int infoStages() {
     gotoxy(38, dinoY + 2);           printf("*  *   *   *   / \\      *    *        *\n");
     gotoxy(35, dinoY + 3);        printf("     *   *  *  * /   \\  *      *     * \n");
     gotoxy(37, dinoY + 4);          printf("*    *    *   /     \\  *     *   *  *  \n");
-    gotoxy(36, dinoY + 5);         printf(" *  *    *    /       \\   *     *    *   \n");
+    gotoxy(34, dinoY + 5);       printf(" *  *    *      /       \\   *     *    *   \n");
     gotoxy(35, dinoY + 6);        printf("  *    *    * /         \\ *   *   *  ");
     gotoxy(34, dinoY + 7);       printf("*    *   *    /^-^-^-^-^-^\\   *  *    *    \n");
     gotoxy(35, dinoY + 8);       printf("                   || \n");
     gotoxy(35, dinoY + 9);       printf("                   ||\n");
-    gotoxy(36, dinoY + 10);       printf("                  JJ           \n");
+    gotoxy(36, dinoY + 10);       printf("                  JJ\n");
 
 
 
@@ -226,7 +220,7 @@ int infoStages() {
     gotoxy(88, dinoY + 6);      printf("|  |___|   |___|  |\n");
     gotoxy(88, dinoY + 7);      printf("|   ___     ___   |\n");
     gotoxy(88, dinoY + 8);      printf("|  |___|   |___|  |\n");
-    gotoxy(88, dinoY + 9);     printf("|_________________|\n");
+    gotoxy(88, dinoY + 9);      printf("|_________________|\n");
 
     while (1) {
         int n = keyControl();
@@ -528,11 +522,11 @@ int crashing() {
                 return -1;
         }
         else if (stageChoise == 2) {
-            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 13 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
                 return -1;
         }
         else if (stageChoise == 3) {
-            if ((dinoX + 2 <= treeX + 2 && dinoX + 15 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
+            if ((dinoX + 2 <= treeX + 2 && dinoX + 13 >= treeX + 2) && dinoY + 12 >= TREE_Y + 2)
                 return -1;
         }
     }
@@ -815,7 +809,6 @@ void Snowman() { //눈사람 오른쪽에서 왼쪽으로 이동
 void setting() {
     //콘솔창 설정
     system("title DinoSaur Game");
-    system("mode con:cols=110 lines=40");
 
     //커서 설정
     HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -828,6 +821,7 @@ void setting() {
 void start() { //시작 화면
     pushpull();
     while (1) {
+
         gotoxy(30, 10);
         printf("Press 'Space bar' to start the game");
 
@@ -895,17 +889,19 @@ int end(int tic) { //엔딩 화면
 
 int main() {
 
+    setting();
+
     while (1) {
         titleDraw();
         int menuCode = menuDraw();
         if (menuCode == 0) {
             {
+                system("cls");
                 int tic = 0; //게임 내 시간 단위이자 점수 결정 요소
                 int crash = 0; //충돌 체크
-
-                start();
-                setting();
                 
+                start();
+
                 while (1) {
 
                     tic = game(tic);
@@ -945,10 +941,8 @@ int main() {
                     }
                 }
 
-
                 end(tic);
                 while (getchar() != '\n');
-
 
             }
         }
