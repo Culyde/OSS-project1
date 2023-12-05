@@ -895,11 +895,11 @@ int main() {
         titleDraw();
         int menuCode = menuDraw();
         if (menuCode == 0) {
-            {
+            
                 system("cls");
                 int tic = 0; //게임 내 시간 단위이자 점수 결정 요소
                 int crash = 0; //충돌 체크
-                
+
                 start();
 
                 while (1) {
@@ -943,8 +943,8 @@ int main() {
 
                 end(tic);
                 while (getchar() != '\n');
-
-            }
+                treeX = TREE_X; //장애물 위치 초기화
+                treeDecrement = 1; //속도 초기화
         }
         else if (menuCode == 1) {
             charDraw();
