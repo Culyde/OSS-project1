@@ -264,7 +264,8 @@ int infoStages() {
                 gotoxy(47, dinoY);          printf("         _==_\n");
                 gotoxy(47, dinoY + 1);      printf("        (o o )\n");
                 gotoxy(47, dinoY + 2);      printf("        =(  )=\n");
-                gotoxy(47, dinoY + 3);      printf("        -- --\n");
+                gotoxy(47, dinoY + 3);      printf("        (    ) \n");
+                gotoxy(47, dinoY + 4);      printf("       (      ) \n");
 
                 if (keyControl() == SUBMIT)
                     return stageChoise = 2;
