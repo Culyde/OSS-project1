@@ -2,9 +2,6 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <mmsystem.h>
-
-#pragma comment(lib, "winmm.lib")
 
 #define UP 0
 #define DOWN 1
@@ -27,7 +24,6 @@ int end(int);
 int keyControl();
 void reset();
 void speedControl();
-void pushpull();
 
 //공룡 관련 함수
 void draw_Tyrano(int);
@@ -61,11 +57,6 @@ int treeDecrement = 1;
 
 void init() {
     system("mode con cols=56 lines=20 | title DINOGAME");
-}
-
-void pushpull() {
-    PlaySound(TEXT("dinogamebgm.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-
 }
 
 void titleDraw() {
@@ -311,7 +302,7 @@ int charDraw() {
     gotoxy(12, 8);         printf("----------------------------------------------------------------------------------------------");
 
     gotoxy(13, y + 2);            printf("> 1. 티라노");
-    gotoxy(11, dinoY);          printf("        $$$$$$$ \n");
+    gotoxy(11, dinoY);         printf("        $$$$$$$ \n");
     gotoxy(11, dinoY + 1);      printf("       $$ $$$$$$\n");
     gotoxy(11, dinoY + 2);      printf("       $$$$$$$$$\n");
     gotoxy(11, dinoY + 3);      printf("$      $$$      \n");
@@ -811,6 +802,7 @@ void Snowman() { //눈사람 오른쪽에서 왼쪽으로 이동
     speedControl();
 }
 
+
 void setting() {
     //콘솔창 설정
     system("title DinoSaur Game");
@@ -825,7 +817,6 @@ void setting() {
 }
 
 void start() { //시작 화면
-    pushpull();
     while (1) {
         gotoxy(30, 10);
         printf("Press 'Space bar' to start the game");
@@ -904,7 +895,7 @@ int main() {
 
                 start();
                 setting();
-                
+
                 while (1) {
 
                     tic = game(tic);
@@ -938,10 +929,9 @@ int main() {
                         }
                     }
                     crash = crashing();
-                    if (crash == -1) { //충돌 시 탈출
-                        PlaySound(NULL, 0, 0);
+                    if (crash == -1) //충돌 시 탈출
                         break;
-                    }
+
                 }
 
 
