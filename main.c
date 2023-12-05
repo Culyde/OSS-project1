@@ -64,6 +64,7 @@ void init() {
 }
 
 void pushpull() {
+    system("cls");
     PlaySound(TEXT("dinogamebgm.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
 }
