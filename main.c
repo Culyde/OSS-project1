@@ -457,7 +457,7 @@ int charDraw() {
 }
 
 int game(int tic) { //게임화면 메인 요소
-    //srand(time(NULL));
+    srand(time(NULL));
     reset();
     score(tic);
     gotoxy(65, 0);
@@ -736,16 +736,18 @@ void speedControl() {
     }
 }
 
+
+
 void back_draw() {
     printf("\n\n");
     /*gotoxy(0, 4);*/  printf("                                                                           |\n");
-    /*gotoxy(0, 5);*/  printf("                                               __                         | |              |            __\n");
+    /*gotoxy(0, 5);*/  printf("                                               __                         | |                           __\n");
     /*gotoxy(0, 6);*/  printf("                                              |  |    /\\                 /   \\      _     ===          |  |    /\\\n");
     /*gotoxy(0, 7);*/  printf("         /\\             _      __         __  |  |   |  |   =            |   |     /_\\   |   |     __  |  |   |  |   = \n");
     /*gotoxy(0, 8);*/  printf("        |  |  _  __    | | __ |  |  _    |  |_|  |   |  |  | |    __     |   |    |   |  |   |    |  |_|  |   |  |  | |\n");
     /*gotoxy(0, 9);*/  printf("   _    |  | | ||  |   | ||  ||  | | |   |   _   |   |  |  | |   |  |    |   |    |   |  |   |    |   _   |   |  |  | |\n");
     /*gotoxy(0, 10);*/ printf("  | |   |  | | ||  |   | ||  ||  | | |   |  | |  |   |  |  | |   |  |   _|   |_   |   |  |   |    |  | |  |   |  |  | |\n");
-    /*gotoxy(0, 11);*/ printf("__| |___|  |_| ||  |___| ||  ||  |_| |___|  |_|  |___|  |__| |___|  |__/       \\__|   |__|   |____|  |_|  |___|  |__| |_\n");
+    /*gotoxy(0, 11);*/ printf("__| |___|  |_| ||  |___| ||  ||  |_| |___|  |_|  |___|  |__| |___|  |__/       \\__|   |__|   |____|  |_|  |___|  |__| |_");
 }
 
 void draw_city() { //집 그리기
@@ -753,30 +755,30 @@ void draw_city() { //집 그리기
     gotoxy(treeX + 1, TREE_Y + 1);      printf("/    \\\n");
     gotoxy(treeX + 1, TREE_Y + 2);      printf("------\n");
     gotoxy(treeX + 2, TREE_Y + 3);       printf("|##|\n");
-    gotoxy(treeX + 2, TREE_Y + 4);       printf("|  |");
+    gotoxy(treeX + 2, TREE_Y + 4);       printf("|##|");
 }
 
 void erase_city() { //집 지우기
     if (temp < 950) {
-        gotoxy(treeX + 3, TREE_Y);         printf("     \n");
-        gotoxy(treeX + 2, TREE_Y + 1);    printf("        \n");
-        gotoxy(treeX + 2, TREE_Y + 2);    printf("       \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("     \n");
-        gotoxy(treeX + 3, TREE_Y + 4);     printf("     ");
+        gotoxy(treeX + 3, TREE_Y);         printf("       \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("          \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("         \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("       \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("       ");
     }
     else if (temp >= 950 && temp < 1350) {
-        gotoxy(treeX + 3, TREE_Y);         printf("      \n");
-        gotoxy(treeX + 2, TREE_Y + 1);    printf("         \n");
-        gotoxy(treeX + 2, TREE_Y + 2);    printf("        \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("      \n");
-        gotoxy(treeX + 3, TREE_Y + 4);     printf("      ");
+        gotoxy(treeX + 3, TREE_Y);         printf("         \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("            \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("           \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("         \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("         ");
     }
     else if (temp >= 1350) {
-        gotoxy(treeX + 3, TREE_Y);         printf("        \n");
-        gotoxy(treeX + 2, TREE_Y + 1);    printf("           \n");
-        gotoxy(treeX + 2, TREE_Y + 2);    printf("          \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("        \n");
-        gotoxy(treeX + 3, TREE_Y + 4);     printf("        ");
+        gotoxy(treeX + 3, TREE_Y);         printf("          \n");
+        gotoxy(treeX + 2, TREE_Y + 1);    printf("             \n");
+        gotoxy(treeX + 2, TREE_Y + 2);    printf("            \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("          \n");
+        gotoxy(treeX + 3, TREE_Y + 4);     printf("          ");
     }
 }
 
@@ -837,16 +839,9 @@ void draw_airplain() {
     gotoxy(treeX + 2, AIR_Y + 4);       printf("      \\ \\\n");
     gotoxy(treeX + 2, AIR_Y + 5);       printf("       \\_\\ ");
 }
+
 void erase_airplain() {
     if (temp < 950) {
-        gotoxy(treeX + 3, AIR_Y);        printf("                  \n");
-        gotoxy(treeX + 3, AIR_Y + 1);    printf("                  \n");
-        gotoxy(treeX + 3, AIR_Y + 2);    printf("                  \n");
-        gotoxy(treeX + 3, AIR_Y + 3);    printf("                 \n");
-        gotoxy(treeX + 3, AIR_Y + 4);    printf("               \n");
-        gotoxy(treeX + 3, AIR_Y + 5);    printf("               \n");
-    }
-    else if (temp >= 950 && temp < 1350) {
         gotoxy(treeX + 3, AIR_Y);        printf("                   \n");
         gotoxy(treeX + 3, AIR_Y + 1);    printf("                   \n");
         gotoxy(treeX + 3, AIR_Y + 2);    printf("                   \n");
@@ -854,13 +849,21 @@ void erase_airplain() {
         gotoxy(treeX + 3, AIR_Y + 4);    printf("                \n");
         gotoxy(treeX + 3, AIR_Y + 5);    printf("                \n");
     }
+    else if (temp >= 950 && temp < 1350) {
+        gotoxy(treeX + 3, AIR_Y);        printf("                     \n");
+        gotoxy(treeX + 3, AIR_Y + 1);    printf("                     \n");
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("                     \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("                    \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("                  \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("                  \n");
+    }
     else if (temp >= 1350) {
-        gotoxy(treeX + 3, AIR_Y);        printf("                    \n");
-        gotoxy(treeX + 3, AIR_Y + 1);    printf("                    \n");
-        gotoxy(treeX + 3, AIR_Y + 2);    printf("                    \n");
-        gotoxy(treeX + 3, AIR_Y + 3);    printf("                   \n");
-        gotoxy(treeX + 3, AIR_Y + 4);    printf("                 \n");
-        gotoxy(treeX + 3, AIR_Y + 5);    printf("                 \n");
+        gotoxy(treeX + 3, AIR_Y);        printf("                     \n");
+        gotoxy(treeX + 3, AIR_Y + 1);    printf("                     \n");
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("                     \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("                    \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("                  \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("                  \n");
     }
 }
 void airplain() { 
@@ -871,7 +874,6 @@ void airplain() {
 
     speedControl();
 }
-
 
 void setting() {
     //콘솔창 설정
