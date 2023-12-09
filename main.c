@@ -343,7 +343,7 @@ int charDraw() {
     gotoxy(12, 8);         printf("----------------------------------------------------------------------------------------------");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-    gotoxy(13, y + 2);            printf("> 1. 티라노");
+    gotoxy(13, y + 2);          printf("> 1. 티라노");
     gotoxy(11, dinoY);          printf("        $$$$$$$ \n");
     gotoxy(11, dinoY + 1);      printf("       $$ $$$$$$\n");
     gotoxy(11, dinoY + 2);      printf("       $$$$$$$$$\n");
@@ -354,16 +354,16 @@ int charDraw() {
     gotoxy(11, dinoY + 7);      printf(" $$$$$$$$$$$    \n");
     gotoxy(11, dinoY + 8);      printf("  $$$$$$$$$$    \n");
     gotoxy(11, dinoY + 9);      printf("    $$$$$$$$    \n");
-    gotoxy(11, dinoY + 10);      printf("     $$$$$$     \n");
-    gotoxy(11, dinoY + 11);      printf("     $    $$$    \n");
-    gotoxy(11, dinoY + 12);      printf("     $$          ");
+    gotoxy(11, dinoY + 10);     printf("     $$$$$$     \n");
+    gotoxy(11, dinoY + 11);     printf("     $    $$$    \n");
+    gotoxy(11, dinoY + 12);     printf("     $$          ");
 
-    gotoxy(53, y + 2);         printf("  2. 오리");
+     gotoxy(53, y + 2);         printf("  2. 오리");
     gotoxy(47, dinoY - 1);      printf("           $$$$$\n");
     gotoxy(47, dinoY);          printf("          $$$$$$$\n");
     gotoxy(47, dinoY + 1);      printf("          $$ $$$$$\n");
-    gotoxy(47, dinoY + 2);      printf("          $$$$$$$$$$$$$\n");
-    gotoxy(47, dinoY + 3);      printf("          $$$$$$$$$$$$\n");
+    gotoxy(47, dinoY + 2);      printf("          $$$$$\033[33m$$$$$$$\033[0m\n");
+    gotoxy(47, dinoY + 3);      printf("          $$$$$\033[33m$$$$$$\033[0m\n");
     gotoxy(47, dinoY + 4);      printf("     *    $$$$$\n");
     gotoxy(47, dinoY + 5);      printf("     $     $$$$$\n");
     gotoxy(47, dinoY + 6);      printf("     $$     $$$$$\n");
@@ -372,14 +372,15 @@ int charDraw() {
     gotoxy(47, dinoY + 9);      printf("      $$$$$$$$$$$$\n");
     gotoxy(47, dinoY + 10);     printf("       $$$$$$$$$$\n");
     gotoxy(47, dinoY + 11);     printf("         $$$$$$$\n");
-    gotoxy(47, dinoY + 12);     printf("          $    $$\n");
-    gotoxy(47, dinoY + 13);     printf("          $$");
+    gotoxy(47, dinoY + 12);     printf("          \033[33m$    $$\033[0m\n");
+    gotoxy(47, dinoY + 13);     printf("          \033[33m$$\033[0m");
 
-    gotoxy(93, y + 2);            printf("  3. 토끼");
-    gotoxy(88, dinoY - 1);      printf("        $$ $$  \n");
-    gotoxy(88, dinoY);          printf("        $$ $$  \n");
-    gotoxy(88, dinoY + 1);      printf("        $$ $$  \n");
-    gotoxy(88, dinoY + 2);      printf("        $$ $$   \n");
+    gotoxy(93, y + 2);          printf("  3. 토끼");
+    gotoxy(88, dinoY - 1);      printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(88, dinoY);          printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(88, dinoY + 1);      printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(88, dinoY + 2);      printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m   \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     gotoxy(88, dinoY + 3);      printf("       $$$$$$$  \n");
     gotoxy(88, dinoY + 4);      printf("      $$$$ $$$$ \n");
     gotoxy(88, dinoY + 5);      printf("      $$$$$$$$ \n");
@@ -391,7 +392,6 @@ int charDraw() {
     gotoxy(88, dinoY + 11);     printf("   $$$$$$$\n");
     gotoxy(88, dinoY + 12);     printf("    $    $$$\n");
     gotoxy(88, dinoY + 13);     printf("    $$    ");
-
     while (1) {
         int n = keyControl();
         switch (n) {
@@ -442,11 +442,11 @@ int charDraw() {
                 printf("오리를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);          printf("         $$$$$\n");
+                               gotoxy(47, dinoY);          printf("         $$$$$\n");
                 gotoxy(47, dinoY + 1);      printf("        $$$$$$$\n");
                 gotoxy(47, dinoY + 2);      printf("        $$ $$$$$\n");
-                gotoxy(47, dinoY + 3);      printf("        $$$$$$$$$$$$$\n");
-                gotoxy(47, dinoY + 4);      printf("        $$$$$$$$$$$$\n");
+                gotoxy(47, dinoY + 3);      printf("        $$$$$\033[33m$$$$$$$\033[0m\n");
+                gotoxy(47, dinoY + 4);      printf("        $$$$$\033[33m$$$$$$\033[0m\n");
                 gotoxy(47, dinoY + 5);      printf("   *    $$$$$\n");
                 gotoxy(47, dinoY + 6);      printf("   $     $$$$$\n");
                 gotoxy(47, dinoY + 7);      printf("   $$     $$$$$\n");
@@ -455,8 +455,8 @@ int charDraw() {
                 gotoxy(47, dinoY + 10);     printf("    $$$$$$$$$$$$\n");
                 gotoxy(47, dinoY + 11);     printf("     $$$$$$$$$$\n");
                 gotoxy(47, dinoY + 12);     printf("       $$$$$$$\n");
-                gotoxy(47, dinoY + 13);     printf("        $    $$\n");
-                gotoxy(47, dinoY + 14);     printf("        $$");
+                gotoxy(47, dinoY + 13);     printf("        \033[33m$    $$\033[0m\n");
+                gotoxy(47, dinoY + 14);     printf("        \033[33m$$\033[0m");
                 if (keyControl() == SUBMIT)
                     return charChoise = 2;
             }
@@ -465,10 +465,10 @@ int charDraw() {
                 printf("토끼를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);          printf("           $$ $$  \n");
-                gotoxy(47, dinoY + 1);      printf("           $$ $$  \n");
-                gotoxy(47, dinoY + 2);      printf("           $$ $$  \n");
-                gotoxy(47, dinoY + 3);      printf("           $$ $$   \n");
+                gotoxy(47, dinoY);          printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+                gotoxy(47, dinoY + 1);      printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+                gotoxy(47, dinoY + 2);      printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+                gotoxy(47, dinoY + 3);      printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
                 gotoxy(47, dinoY + 4);      printf("          $$$$$$$  \n");
                 gotoxy(47, dinoY + 5);      printf("         $$$$ $$$$ \n");
                 gotoxy(47, dinoY + 6);      printf("         $$$$$$$$ \n");
@@ -629,10 +629,10 @@ void draw_rabbit(int tic) { //토끼 그리기
     int toc = tic % 8;
 
     //몸통
-    gotoxy(dinoX, dinoY);          printf("        $$ $$  \n");
-    gotoxy(dinoX, dinoY + 1);      printf("        $$ $$  \n");
-    gotoxy(dinoX, dinoY + 2);      printf("        $$ $$  \n");
-    gotoxy(dinoX, dinoY + 3);      printf("        $$ $$   \n");
+    gotoxy(dinoX, dinoY);          printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY + 1);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY + 2);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY + 3);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
     gotoxy(dinoX, dinoY + 4);      printf("        $$$$$$  \n");
     gotoxy(dinoX, dinoY + 5);      printf("       $$$ $$$$ \n");
     gotoxy(dinoX, dinoY + 6);      printf("       $$$$$$$ \n");
@@ -642,7 +642,6 @@ void draw_rabbit(int tic) { //토끼 그리기
     gotoxy(dinoX, dinoY + 10);     printf("  $$$$$$$$$$\n");
     gotoxy(dinoX, dinoY + 11);     printf("   $$$$$$$$$\n");
     gotoxy(dinoX, dinoY + 12);     printf("    $$$$$$$$\n");
-
 
     //발 구르기 구현
     if (toc >= 0 && toc <= 3) //4tic 동안 유지
@@ -669,8 +668,8 @@ void draw_Duck(int tic) { //오리 그리기
     gotoxy(dinoX, dinoY);          printf("          $$$$$\n");
     gotoxy(dinoX, dinoY + 1);      printf("         $$$$$$$\n");
     gotoxy(dinoX, dinoY + 2);      printf("         $$ $$$$$\n");
-    gotoxy(dinoX, dinoY + 3);      printf("         $$$$$$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 4);      printf("         $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 3);      printf("         $$$$$\033[33m$$$$$$$\033[0m\n");
+    gotoxy(dinoX, dinoY + 4);      printf("         $$$$$\033[33m$$$$$$\033[0m\n");
     gotoxy(dinoX, dinoY + 5);      printf("    *    $$$$$\n");
     gotoxy(dinoX, dinoY + 6);      printf("    $     $$$$$\n");
     gotoxy(dinoX, dinoY + 7);      printf("    $$     $$$$$\n");
@@ -679,6 +678,7 @@ void draw_Duck(int tic) { //오리 그리기
     gotoxy(dinoX, dinoY + 10);     printf("     $$$$$$$$$$$$\n");
     gotoxy(dinoX, dinoY + 11);     printf("      $$$$$$$$$$\n");
     gotoxy(dinoX, dinoY + 12);     printf("        $$$$$$$\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
 
 
     //발 구르기 구현
@@ -696,6 +696,7 @@ void draw_Duck(int tic) { //오리 그리기
         printf("         $$  $\n");
         printf("              $$");
     }
+     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
 void erase_foot() { //발 지우기
