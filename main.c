@@ -73,15 +73,25 @@ void pushpull() {
 
 void titleDraw() {
     printf("\n");
-      printf("         +=======================================================================================================+\n\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    printf("         +=======================================================================================================+\n\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
     printf("             #######      ##    ##      ##    ######        ######          #         ###        ###  #########\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
     printf("             ##     ##    ##    ## #    ##   ##    ##     ##     ##        ###        ## ##    ## ##  ##\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     printf("             ##      ##   ##    ##  #   ##   ##    ##    ##       ##      ## ##       ##  ##  ##  ##  ##\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     printf("             ##      ##   ##    ##   #  ##   ##    ##    ##              ##   ##      ##   ####   ##  #########\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     printf("             ##      ##   ##    ##   #  ##   ##    ##    ##    #####    #########     ##    ##    ##  ##\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
     printf("             ##     ##    ##    ##    # ##   ##    ##     ##     ##    ##       ##    ##          ##  ##\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
     printf("             #######      ##    ##     ###    ######       #######    ##         ##   ##          ##  #########\n\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
     printf("         +=======================================================================================================+\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
 void gotoxy(int x, int y) {
@@ -181,19 +191,29 @@ void infoDraw() {
 int infoStages() {
     system("cls");
     int x = 13, y = 10;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     gotoxy(12, 0);         printf("             ---------------------------------------------------------------------------");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
     gotoxy(12, 1);         printf("                      ######  ########    ###     ######   ########  ######  ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
     gotoxy(12, 2);         printf("                     ##    ##    ##      ## ##   ##    ##  ##       ##    ## ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     gotoxy(12, 3);         printf("                     ##          ##     ##   ##  ##        ##       ##       ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     gotoxy(12, 4);         printf("                      ######     ##    ##     ## ##   #### ######    ######  ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     gotoxy(12, 5);         printf("                           ##    ##    ######### ##    ##  ##             ## ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
     gotoxy(12, 6);         printf("                           ##    ##    ##     ## ##    ##  ##       ##    ## ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
     gotoxy(12, 7);         printf("                      ######     ##    ##     ##  ######   ########  ######  ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
     gotoxy(12, 8);         printf("             ---------------------------------------------------------------------------");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
     gotoxy(13, y + 2);            printf("> 1. 사막");
     gotoxy(6, dinoY);          printf("            /\\\n");
-    gotoxy(6, dinoY+ 1);       printf("           /__\\\n");
+    gotoxy(6, dinoY + 1);       printf("           /__\\\n");
     gotoxy(6, dinoY + 2);      printf("          /____\\\n");
     gotoxy(6, dinoY + 3);      printf("         /______\\\n");
     gotoxy(6, dinoY + 4);      printf("        /________\\\n");
@@ -303,15 +323,25 @@ int infoStages() {
 int charDraw() {
     system("cls");
     int x = 13, y = 10;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     gotoxy(12, 0);         printf("----------------------------------------------------------------------------------------------");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
     gotoxy(12, 1);         printf(" #####   ##     ##    ###    ########     ###     ######  ######## ######## ########   ######");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
     gotoxy(12, 2);         printf("##    ## ##     ##   ## ##   ##     ##   ## ##   ##    ##    ##    ##       ##     ## ##    ##");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     gotoxy(12, 3);         printf("##       ##     ##  ##   ##  ##     ##  ##   ##  ##          ##    ##       ##     ## ##   ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     gotoxy(12, 4);         printf("##       ######### ##     ## ########  ##     ## ##          ##    #######  #######    #######");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     gotoxy(12, 5);         printf("##       ##     ## ######### ##   ##   ######### ##          ##    ##       ##   ##         ##");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
     gotoxy(12, 6);         printf("##    ## ##     ## ##     ## ##    ##  ##     ## ##    ##    ##    ##       ##    ##  ##    ##");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
     gotoxy(12, 7);         printf(" #####   ##     ## ##     ## ##     ## ##     ##  ######     ##    ######## ##     ##  ######");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
     gotoxy(12, 8);         printf("----------------------------------------------------------------------------------------------");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
     gotoxy(13, y + 2);            printf("> 1. 티라노");
     gotoxy(11, dinoY);          printf("        $$$$$$$ \n");
