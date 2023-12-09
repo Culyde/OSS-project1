@@ -285,11 +285,11 @@ int infoStages() {
                 printf("도시 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);          printf("       ______      \n");
-                gotoxy(47, dinoY + 1);      printf("      /      \\   \n");
-                gotoxy(47, dinoY + 2);      printf("      --------    \n");
-                gotoxy(47, dinoY + 3);      printf("       | ## | \n");
-                gotoxy(47, dinoY + 4);      printf("       | ## |  \n");
+                gotoxy(47, dinoY);          printf("       ____      \n");
+                gotoxy(47, dinoY + 1);      printf("      /    \\   \n");
+                gotoxy(47, dinoY + 2);      printf("      ------    \n");
+                gotoxy(47, dinoY + 3);      printf("       |##| \n");
+                gotoxy(47, dinoY + 4);      printf("       |  |  \n");
                 if (keyControl() == SUBMIT)
                     return stageChoise = 3;
             }
@@ -739,13 +739,13 @@ void speedControl() {
 void back_draw() {
     printf("\n\n");
     /*gotoxy(0, 4);*/  printf("                                                                           |\n");
-    /*gotoxy(0, 5);*/  printf("                                               __                         | |                           __\n");
+    /*gotoxy(0, 5);*/  printf("                                               __                         | |              |            __\n");
     /*gotoxy(0, 6);*/  printf("                                              |  |    /\\                 /   \\      _     ===          |  |    /\\\n");
     /*gotoxy(0, 7);*/  printf("         /\\             _      __         __  |  |   |  |   =            |   |     /_\\   |   |     __  |  |   |  |   = \n");
     /*gotoxy(0, 8);*/  printf("        |  |  _  __    | | __ |  |  _    |  |_|  |   |  |  | |    __     |   |    |   |  |   |    |  |_|  |   |  |  | |\n");
     /*gotoxy(0, 9);*/  printf("   _    |  | | ||  |   | ||  ||  | | |   |   _   |   |  |  | |   |  |    |   |    |   |  |   |    |   _   |   |  |  | |\n");
     /*gotoxy(0, 10);*/ printf("  | |   |  | | ||  |   | ||  ||  | | |   |  | |  |   |  |  | |   |  |   _|   |_   |   |  |   |    |  | |  |   |  |  | |\n");
-    /*gotoxy(0, 11);*/ printf("__| |___|  |_| ||  |___| ||  ||  |_| |___|  |_|  |___|  |__| |___|  |__/       \\__|   |__|   |____|  |_|  |___|  |__| |_");
+    /*gotoxy(0, 11);*/ printf("__| |___|  |_| ||  |___| ||  ||  |_| |___|  |_|  |___|  |__| |___|  |__/       \\__|   |__|   |____|  |_|  |___|  |__| |_\n");
 }
 
 void draw_city() { //집 그리기
@@ -753,7 +753,7 @@ void draw_city() { //집 그리기
     gotoxy(treeX + 1, TREE_Y + 1);      printf("/    \\\n");
     gotoxy(treeX + 1, TREE_Y + 2);      printf("------\n");
     gotoxy(treeX + 2, TREE_Y + 3);       printf("|##|\n");
-    gotoxy(treeX + 2, TREE_Y + 4);       printf("|##|");
+    gotoxy(treeX + 2, TREE_Y + 4);       printf("|  |");
 }
 
 void erase_city() { //집 지우기
