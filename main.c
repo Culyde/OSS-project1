@@ -241,6 +241,7 @@ int infoStages() {
 
 
     gotoxy(92, y + 2);            printf("   3. 도시");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
     gotoxy(88, dinoY);          printf("            ____\n");
     gotoxy(89, dinoY + 1);       printf("___________|  |__\n");
     gotoxy(88, dinoY + 2);      printf("/_________________\\\n");
@@ -251,7 +252,7 @@ int infoStages() {
     gotoxy(88, dinoY + 7);      printf("|   ___     ___   |\n");
     gotoxy(88, dinoY + 8);      printf("|  |___|   |___|  |\n");
     gotoxy(88, dinoY + 9);      printf("|_________________|\n");
-
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     while (1) {
         int n = keyControl();
         switch (n) {
@@ -310,11 +311,13 @@ int infoStages() {
                 printf("도시 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
                 gotoxy(47, dinoY);          printf("       ____      \n");
                 gotoxy(47, dinoY + 1);      printf("      /    \\   \n");
                 gotoxy(47, dinoY + 2);      printf("      ------    \n");
                 gotoxy(47, dinoY + 3);      printf("       |##| \n");
                 gotoxy(47, dinoY + 4);      printf("       |  |  \n");
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
                 if (keyControl() == SUBMIT)
                     return stageChoise = 3;
             }
@@ -813,11 +816,13 @@ void back_draw_city() {
 }
 
 void draw_city() { //집 그리기
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
     gotoxy(treeX + 2, TREE_Y);           printf("____\n");
     gotoxy(treeX + 1, TREE_Y + 1);      printf("/    \\\n");
     gotoxy(treeX + 1, TREE_Y + 2);      printf("------\n");
     gotoxy(treeX + 2, TREE_Y + 3);       printf("|##|\n");
     gotoxy(treeX + 2, TREE_Y + 4);       printf("|  |");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
 void erase_city() { //집 지우기
