@@ -379,7 +379,7 @@ int charDraw() {
     gotoxy(47, dinoY + 13);     printf("          \033[33m$$\033[0m");
 
     gotoxy(93, y + 2);          printf("  3. 토끼");
-    gotoxy(88, dinoY - 1);      printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(88, dinoY - 1);      printf("       $$\033[0m $$\033[0m  \n");
     gotoxy(88, dinoY);          printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
     gotoxy(88, dinoY + 1);      printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
     gotoxy(88, dinoY + 2);      printf("       $\033[1;35m$\033[0m $\033[1;35m$\033[0m   \n");
@@ -470,7 +470,7 @@ int charDraw() {
                 printf("토끼를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                gotoxy(47, dinoY);          printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+                gotoxy(47, dinoY);          printf("          $$\033[0m $$\033[0m  \n");
                 gotoxy(47, dinoY + 1);      printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
                 gotoxy(47, dinoY + 2);      printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
                 gotoxy(47, dinoY + 3);      printf("          $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
@@ -636,7 +636,7 @@ void draw_rabbit(int tic) { //토끼 그리기
     int toc = tic % 8;
 
     //몸통
-    gotoxy(dinoX, dinoY);          printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY);          printf("        $$\033[0m $$\033[0m  \n");
     gotoxy(dinoX, dinoY + 1);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
     gotoxy(dinoX, dinoY + 2);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
     gotoxy(dinoX, dinoY + 3);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
