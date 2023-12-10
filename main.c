@@ -190,6 +190,7 @@ void infoDraw() {
 
 int infoStages() {
     system("cls");
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     int x = 13, y = 10;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     gotoxy(12, 0);         printf("             ---------------------------------------------------------------------------");
@@ -1013,7 +1014,7 @@ int end(int tic) { //엔딩 화면
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
     gotoxy(a, a + 6);   printf("      #####    ##  ##  ##   ##  #######            #####      ##    #######   ###  ## \n\n\n\n");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-    
+
     gotoxy(40, 20);
     printf("final score : %4d", tic / 5 * 10); //최종 점수
 
