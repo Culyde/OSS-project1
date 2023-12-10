@@ -322,6 +322,7 @@ int infoStages() {
 
 int charDraw() {
     system("cls");
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     int x = 13, y = 10;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     gotoxy(12, 0);         printf("----------------------------------------------------------------------------------------------");
@@ -344,6 +345,7 @@ int charDraw() {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
     gotoxy(13, y + 2);          printf("> 1. 티라노");
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     gotoxy(11, dinoY);          printf("        $$$$$$$ \n");
     gotoxy(11, dinoY + 1);      printf("       $$ $$$$$$\n");
     gotoxy(11, dinoY + 2);      printf("       $$$$$$$$$\n");
@@ -357,8 +359,9 @@ int charDraw() {
     gotoxy(11, dinoY + 10);     printf("     $$$$$$     \n");
     gotoxy(11, dinoY + 11);     printf("     $    $$$    \n");
     gotoxy(11, dinoY + 12);     printf("     $$          ");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-     gotoxy(53, y + 2);         printf("  2. 오리");
+    gotoxy(53, y + 2);         printf("  2. 오리");
     gotoxy(47, dinoY - 1);      printf("           $$$$$\n");
     gotoxy(47, dinoY);          printf("          $$$$$$$\n");
     gotoxy(47, dinoY + 1);      printf("          $$ $$$$$\n");
@@ -420,6 +423,7 @@ int charDraw() {
                 printf("티라노를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+                SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
                 gotoxy(47, dinoY);          printf("        $$$$$$$ \n");
                 gotoxy(47, dinoY + 1);      printf("       $$ $$$$$$\n");
                 gotoxy(47, dinoY + 2);      printf("       $$$$$$$$$\n");
@@ -433,6 +437,7 @@ int charDraw() {
                 gotoxy(47, dinoY + 10);     printf("     $$$$$$     \n");
                 gotoxy(47, dinoY + 11);     printf("     $    $$$    \n");
                 gotoxy(47, dinoY + 12);     printf("     $$          ");
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
                 if (keyControl() == SUBMIT)
                     return charChoise = 1;
@@ -594,7 +599,7 @@ void reset(void) {
 
 void draw_Tyrano(int tic) {//티라노 그리기
     int toc = tic % 8;
-
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     //몸통
     gotoxy(dinoX, dinoY + 2);      printf("          $$$$$$$ \n");
     gotoxy(dinoX, dinoY + 3);      printf("         $$ $$$$$$$\n");
@@ -622,6 +627,7 @@ void draw_Tyrano(int tic) {//티라노 그리기
         printf("       $$$  $  \n");
         printf("            $$");
     }
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
 void draw_rabbit(int tic) { //토끼 그리기
