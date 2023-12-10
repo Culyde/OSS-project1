@@ -599,6 +599,7 @@ void reset(void) {
 
 void draw_Tyrano(int tic) {//티라노 그리기
     int toc = tic % 8;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     //몸통
     gotoxy(dinoX, dinoY + 2);      printf("          $$$$$$$ \n");
