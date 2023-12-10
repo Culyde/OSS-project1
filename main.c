@@ -447,7 +447,7 @@ int charDraw() {
                 printf("오리를 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                               gotoxy(47, dinoY);          printf("         $$$$$\n");
+                gotoxy(47, dinoY);          printf("         $$$$$\n");
                 gotoxy(47, dinoY + 1);      printf("        $$$$$$$\n");
                 gotoxy(47, dinoY + 2);      printf("        $$ $$$$$\n");
                 gotoxy(47, dinoY + 3);      printf("        $$$$$\033[33m$$$$$$$\033[0m\n");
@@ -703,7 +703,7 @@ void draw_Duck(int tic) { //오리 그리기
         printf("         $$  $\n");
         printf("              $$");
     }
-     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
 void erase_foot() { //발 지우기
@@ -883,7 +883,7 @@ void erase_Snowman() { //눈사람 지우기
         gotoxy(treeX + 3, TREE_Y);         printf("        \n");
         gotoxy(treeX + 2, TREE_Y + 1);    printf("           \n");
         gotoxy(treeX + 2, TREE_Y + 2);    printf("           \n");
-        gotoxy(treeX + 3, TREE_Y + 3);     printf("         \n");
+        gotoxy(treeX + 3, TREE_Y + 3);     printf("          \n");
         gotoxy(treeX + 2, TREE_Y + 4);    printf("            ");
     }
 }
