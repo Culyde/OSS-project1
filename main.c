@@ -211,7 +211,8 @@ int infoStages() {
     gotoxy(12, 8);         printf("             ---------------------------------------------------------------------------");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-    gotoxy(13, y + 2);            printf("> 1. 사막");
+   gotoxy(13, y + 2);            printf("> 1. 사막");
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     gotoxy(6, dinoY);          printf("            /\\\n");
     gotoxy(6, dinoY + 1);       printf("           /__\\\n");
     gotoxy(6, dinoY + 2);      printf("          /____\\\n");
@@ -221,17 +222,17 @@ int infoStages() {
     gotoxy(6, dinoY + 6);      printf("      /____________\\\n");
     gotoxy(6, dinoY + 7);      printf("     /______________\\\n");
     gotoxy(6, dinoY + 8);      printf("    /________________\\\n");
-
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
     gotoxy(51, y + 2);         printf("    2. 겨울");
     gotoxy(37, dinoY);          printf("     *     *   *   *    *   *        *    *\n");
-    gotoxy(36, dinoY + 1);       printf("*  *    *   *       |  *   *    *      *\n");
-    gotoxy(40, dinoY + 2);           printf("*  *   *   *   / \\      *    *        *\n");
-    gotoxy(37, dinoY + 3);        printf("     *   *  *  * /   \\  *      *     * \n");
-    gotoxy(39, dinoY + 4);          printf("*    *    *   /     \\  *     *   *  *  \n");
-    gotoxy(36, dinoY + 5);       printf(" *  *    *      /       \\   *     *    *   \n");
-    gotoxy(37, dinoY + 6);        printf("  *    *    * /         \\ *   *   *  ");
-    gotoxy(36, dinoY + 7);       printf("*    *   *    /^-^-^-^-^-^\\   *  *    *    \n");
+    gotoxy(36, dinoY + 1);       printf("*  *    *   *       \033[0;36m|\033[0m  *   *    *      *\n");
+    gotoxy(40, dinoY + 2);           printf("*  *   *   *   \033[0;36m/ \\\033[0m      *    *        *\n");
+    gotoxy(37, dinoY + 3);        printf("     *   *  *  * \033[0;36m/   \\\033[0m  *      *     * \n");
+    gotoxy(39, dinoY + 4);          printf("*    *    *   \033[0;36m/     \\\033[0m  *     *   *  *  \n");
+    gotoxy(36, dinoY + 5);       printf(" *  *    *      \033[0;36m/       \\\033[0m   *     *    *   \n");
+    gotoxy(37, dinoY + 6);        printf("  *    *    * \033[0;36m/         \\\033[0m *   *   *  ");
+    gotoxy(36, dinoY + 7);       printf("*    *   *    \033[0;36m/^-^-^-^-^-^\\\033[0m   *  *    *    \n");
     gotoxy(37, dinoY + 8);       printf("                   || \n");
     gotoxy(37, dinoY + 9);       printf("                   ||\n");
     gotoxy(38, dinoY + 10);       printf("                  JJ\n");
@@ -278,12 +279,13 @@ int infoStages() {
                 printf("사막 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
+               SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
                 gotoxy(50, dinoY);          printf("         ## \n");
                 gotoxy(50, dinoY + 1);      printf("       # ## # \n");
                 gotoxy(50, dinoY + 2);      printf("       ######  \n");
                 gotoxy(50, dinoY + 3);      printf("         ##    \n");
                 gotoxy(50, dinoY + 4);      printf("         ##    ");
-
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
                 if (keyControl() == SUBMIT)
                     return stageChoise = 1;
@@ -723,22 +725,28 @@ void erase_dino() { //공룡 지우기
 
 void back_draw_desert() {
     printf("\n\n");
-    /*gotoxy(0, 4);*/  printf("        *       *                      *                *         *                *             *             *\n");
-    /*gotoxy(0, 5);*/  printf("*                       *        *                  *                                         /\\       *        \n");
-    /*gotoxy(0, 6);*/  printf("      *         *                          *               *             *                   /__\\           *       \n");
-    /*gotoxy(0, 7);*/  printf("             /\\                   *                      ___                           *    /____\\             *\n");
-    /*gotoxy(0, 8);*/  printf("            /__\\               __                       /   \\                              /______\\                 \n");
-    /*gotoxy(0, 9);*/  printf("           /____\\             /--\\                     /_   _\\                            /________\\               \n");
-    /*gotoxy(0, 10);*/ printf("          /______\\           /____\\                     /   \\                            /__________\\             \n");
-    /*gotoxy(0, 11);*/ printf("_________/________\\_________/______\\___________________|_____|__________________________/____________\\_____________\n");
-}
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+     printf("        *       *                      *                *         *                *             *             *\n");
+  
+     printf("*                       *        *                  *                                        \033[0;33m /\\\033[0m         *        \n");
+     printf("      *         *                          *               *             *                  \033[0;33m /__\\\033[0m            *       \n");
+     printf("             \033[0;33m/\\\033[0m                   *                      \033[0;33m___\033[0m                           *    \033[0;33m/____\\\033[0m               *\n");
+     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
+     printf("            /__\\               __                       /   \\                              /______\\                 \n");
+     printf("           /____\\             /--\\                     /_   _\\                            /________\\               \n");
+     printf("          /______\\           /____\\                     /   \\                            /__________\\             \n");
+     printf("_________/________\\_________/______\\___________________|_____|__________________________/____________\\_____________\n");
+     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); 
+}
 void draw_tree() { //나무 그리기
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     gotoxy(treeX + 2, TREE_Y);          printf("##\n");
     gotoxy(treeX, TREE_Y + 1);        printf("# ## #\n");
     gotoxy(treeX, TREE_Y + 2);        printf("######\n");
     gotoxy(treeX + 2, TREE_Y + 3);      printf("##\n");
     gotoxy(treeX + 2, TREE_Y + 4);      printf("##");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
 void erase_tree() { //나무 지우기
@@ -845,16 +853,17 @@ void city() { //집 오른쪽에서 왼쪽으로 이동
 }
 
 void back_draw_winter() {
-    printf("\n\n");
-    /*gotoxy(0, 4);*/  printf("        *       *                      *                *         *                *              *             *\n");
-    /*gotoxy(0, 5);*/  printf("*                       *        *                  *                       *          *      *       *     *     \n");
-    /*gotoxy(0, 6);*/  printf(" *        *      *       *       *      *          *      *        *       *              *          *            *  * \n");
-    /*gotoxy(0, 7);*/  printf("  *                 *       *      *     *                   /\\       *         *  /\\ *        *         *    *      * \n");
-    /*gotoxy(0, 8);*/  printf("      * /\\    *     __=__   *     *        _|_  *     *     /  \\          *       /  \\       *    __|__          _|_ * \n");
-    /*gotoxy(0, 9);*/  printf(" *     /  \\      *  (o o)            *    ('v')    *       /    \\   *          * /    \\  *        (o o)   *     ('v') \n");
-    /*gotoxy(0, 10);*/ printf("   *  /____\\   *    -(  )-   *    *    *  //=\\\\       *   /______\\      *       /______\\     *    -(  )-    *   //=\\\\ \n");
-    /*gotoxy(0, 11);*/ printf("________||__________(    )________________(\\ /)_____________ ||____________________||_____________(   )_________(\\ /)___\n");
+     printf("\n\n");
+    printf("        *       *                      *                *         *                *              *             *\n");
+    printf("*                       *        *                  *                       *          *      *       *     *     \n");
+    printf(" *        *      *       *       *      *          *      *        *       *              *          *            *  * \n");
+    printf("  *                 *       *      *     *                   \033[0;32m/\\\033[0m       *         *  \033[0;32m/\\\033[0m *        *         *    *      * \n");
+    printf("      * \033[0;32m/\\\033[0m    *     __=__   *     *        _|_  *     *     \033[0;32m/  \\\033[0m          *       \033[0;32m/  \\\033[0m       *    __|__          _|_ * \n");
+    printf(" *     \033[0;32m/  \\\033[0m      *  (o o)            *    ('v')    *       \033[0;32m/    \\\033[0m   *          * \033[0;32m/    \\\033[0m  *        (o o)   *     ('v') \n");
+    printf("   *  \033[0;32m/____\\\033[0m   *    -(  )-   *    *    *  //=\\\\       *   \033[0;32m/______\\\033[0m      *       \033[0;32m/______\\\033[0m     *    -(  )-    *   //=\\\\ \n");
+    printf("________\033[0;33m||\033[0m__________(    )________________(\\ /)_____________ \033[0;33m||\033[0m____________________\033[0;33m||\033[0m_____________(   )_________(\\ /)___\n");
 }
+
 
 void draw_Snowman() { //눈사람 그리기
     gotoxy(treeX + 2, TREE_Y);            printf("_==_\n");
@@ -989,14 +998,22 @@ void score(int tic) { //점수 출력
 int end(int tic) { //엔딩 화면
     system("cls");
     int a = 10;
-    gotoxy(a, a);       printf(" #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
-    gotoxy(a, a + 1);   printf("##   ##    ####   ### ###   ##  ##           ##   ##   ##  ##   ##  ##   ##  ##  \n");
-    gotoxy(a, a + 2);   printf("##        ##  ##  #######   ##               ##   ##   ##  ##   ##       ##  ##  \n");
-    gotoxy(a, a + 3);   printf("##        ######  ## # ##   ####             ##   ##   ##  ##   ####     #####   \n");
-    gotoxy(a, a + 4);   printf("##  ###   ##  ##  ##   ##   ##               ##   ##   ##  ##   ##       ####    \n");
-    gotoxy(a, a + 5);   printf("##   ##   ##  ##  ##   ##   ##  ##           ##   ##    ####    ##  ##   ## ##   \n");
-    gotoxy(a, a + 6);   printf(" #####    ##  ##  ##   ##  #######            #####      ##    #######   ###  ## \n");
-
+     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    gotoxy(a, a);       printf("      #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+    gotoxy(a, a + 1);   printf("     ##   ##    ####   ### ###   ##  ##           ##   ##   ##  ##   ##  ##   ##  ##  \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+    gotoxy(a, a + 2);   printf("     ##        ##  ##  #######   ##               ##   ##   ##  ##   ##       ##  ##  \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+    gotoxy(a, a + 3);   printf("     ##        ######  ## # ##   ####             ##   ##   ##  ##   ####     #####   \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
+    gotoxy(a, a + 4);   printf("     ##  ###   ##  ##  ##   ##   ##               ##   ##   ##  ##   ##       ####    \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+    gotoxy(a, a + 5);   printf("     ##   ##   ##  ##  ##   ##   ##  ##           ##   ##    ####    ##  ##   ## ##   \n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    gotoxy(a, a + 6);   printf("      #####    ##  ##  ##   ##  #######            #####      ##    #######   ###  ## \n\n\n\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    
     gotoxy(40, 20);
     printf("final score : %4d", tic / 5 * 10); //최종 점수
 
