@@ -173,13 +173,14 @@ int keyControl() {
     }
 }
 
-void infoDraw() {
+    void infoDraw() {
     system("cls");
-    printf("\n\n");
-    printf("                                                          [ 조작법 ]\n\n");
-    printf("                                                       점프 : Space Bar\n\n");
-    printf("                       다가오는 장애물을 점프를 통해 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
-    printf("                             [ 스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다. ]");
+    printf("\n\n\n\n");
+    printf("                                                            [ 조작법 ]\n\n\n");
+    printf("                                               점프 : Space Bar    고개 숙이기 : s\n\n\n\n");
+    printf("                   다가오는 장애물들을 점프와 고개를 숙여 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
+    printf("                               [ 스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다. ]");
+
 
     while (1) {
         if (keyControl() == SUBMIT) {
