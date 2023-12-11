@@ -39,6 +39,13 @@ void draw_Duck(int);
 void draw_rabbit(int);
 void erase_dino();
 void erase_foot();
+void head_duck(int);
+void avoid_duck(int);
+//void erase_head(int);
+void head_rabbit(int);
+void avoid_rabbit(int);
+void head_Tyrano(int);
+void avoid_Tyrano(int);
 
 //장애물 관련 함수
 void tree();
@@ -173,14 +180,13 @@ int keyControl() {
     }
 }
 
-    void infoDraw() {
+void infoDraw() {
     system("cls");
     printf("\n\n\n\n");
     printf("                                                            [ 조작법 ]\n\n\n");
     printf("                                               점프 : Space Bar    고개 숙이기 : s\n\n\n\n");
     printf("                   다가오는 장애물들을 점프와 고개를 숙여 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
     printf("                               [ 스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다. ]");
-
 
     while (1) {
         if (keyControl() == SUBMIT) {
@@ -213,7 +219,7 @@ int infoStages() {
     gotoxy(12, 8);         printf("             ---------------------------------------------------------------------------");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-   gotoxy(13, y + 2);            printf("> 1. 사막");
+    gotoxy(13, y + 2);            printf("> 1. 사막");
     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     gotoxy(6, dinoY);          printf("            /\\\n");
     gotoxy(6, dinoY + 1);       printf("           /__\\\n");
@@ -282,7 +288,7 @@ int infoStages() {
                 printf("사막 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-               SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
                 gotoxy(50, dinoY);          printf("         ## \n");
                 gotoxy(50, dinoY + 1);      printf("       # ## # \n");
                 gotoxy(50, dinoY + 2);      printf("       ######  \n");
@@ -609,13 +615,8 @@ void draw_Tyrano(int tic) {//티라노 그리기
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     //몸통
-    gotoxy(dinoX, dinoY + 2);      printf("          $$$$$$$ \n");
-    gotoxy(dinoX, dinoY + 3);      printf("         $$ $$$$$$$\n");
-    gotoxy(dinoX, dinoY + 4);      printf("         $$$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 5);      printf("  $       $$$$      \n");
-    gotoxy(dinoX, dinoY + 6);      printf("  $$     $$$$$$$$  \n");
-    gotoxy(dinoX, dinoY + 7);      printf("  $$$   $$$$$$     \n");
-    gotoxy(dinoX, dinoY + 8);      printf("   $$  $$$$$$$$$$$ \n");
+    if (key != 115)
+        head_Tyrano(tic);
     gotoxy(dinoX, dinoY + 9);      printf("   $$$$$$$$$$$$ \n");
     gotoxy(dinoX, dinoY + 10);     printf("    $$$$$$$$$$$ \n");
     gotoxy(dinoX, dinoY + 11);     printf("      $$$$$$$$$\n");
@@ -641,16 +642,9 @@ void draw_Tyrano(int tic) {//티라노 그리기
 void draw_rabbit(int tic) { //토끼 그리기
 
     int toc = tic % 8;
-
+    if (key != 115)
+        head_rabbit(tic);
     //몸통
-    gotoxy(dinoX, dinoY);          printf("        $$\033[0m $$\033[0m  \n");
-    gotoxy(dinoX, dinoY + 1);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
-    gotoxy(dinoX, dinoY + 2);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
-    gotoxy(dinoX, dinoY + 3);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
-    gotoxy(dinoX, dinoY + 4);      printf("        $$$$$$  \n");
-    gotoxy(dinoX, dinoY + 5);      printf("       $$$ $$$$ \n");
-    gotoxy(dinoX, dinoY + 6);      printf("       $$$$$$$ \n");
-    gotoxy(dinoX, dinoY + 7);      printf("      $$$$$$  \n");
     gotoxy(dinoX, dinoY + 8);      printf(" $$  $$$$$$$$$$$\n");
     gotoxy(dinoX, dinoY + 9);      printf(" $$$$$$$$$$$\n");
     gotoxy(dinoX, dinoY + 10);     printf("  $$$$$$$$$$\n");
@@ -677,7 +671,35 @@ void draw_rabbit(int tic) { //토끼 그리기
 void draw_Duck(int tic) { //오리 그리기
 
     int toc = tic % 8;
+    if (key != 115)
+        head_duck(tic);
+    //몸통
+    gotoxy(dinoX, dinoY + 8);      printf("    $$$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 9);      printf("     $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 10);     printf("     $$$$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 11);     printf("      $$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 12);     printf("        $$$$$$$\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
 
+    //발 구르기 구현
+    if (toc >= 0 && toc <= 3) //4tic 동안 유지
+    {
+        erase_foot();
+        gotoxy(dinoX, dinoY + 13); //발 그리기
+        printf("        $    $$\n");
+        printf("        $$");
+    }
+    else
+    {
+        erase_foot();
+        gotoxy(dinoX, dinoY + 13); //발 그리기
+        printf("        $$  $\n");
+        printf("            $$");
+    }
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+}
+
+void head_duck(int tic) {
     //몸통
     gotoxy(dinoX, dinoY);          printf("          $$$$$\n");
     gotoxy(dinoX, dinoY + 1);      printf("         $$$$$$$\n");
@@ -687,29 +709,74 @@ void draw_Duck(int tic) { //오리 그리기
     gotoxy(dinoX, dinoY + 5);      printf("    *    $$$$$\n");
     gotoxy(dinoX, dinoY + 6);      printf("    $     $$$$$\n");
     gotoxy(dinoX, dinoY + 7);      printf("    $$     $$$$$\n");
-    gotoxy(dinoX, dinoY + 8);      printf("    $$$$$$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 9);      printf("     $$$$$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 10);     printf("     $$$$$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 11);     printf("      $$$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 12);     printf("        $$$$$$$\n");
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+}
 
+void avoid_duck(int tic) {
 
-    //발 구르기 구현
-    if (toc >= 0 && toc <= 3) //4tic 동안 유지
-    {
-        erase_foot();
-        gotoxy(dinoX, dinoY + 13); //발 그리기
-        printf("         $    $$\n");
-        printf("         $$");
-    }
-    else
-    {
-        erase_foot();
-        gotoxy(dinoX, dinoY + 13); //발 그리기
-        printf("         $$  $\n");
-        printf("              $$");
-    }
+    int toc = tic % 8;
+
+    gotoxy(dinoX, dinoY);           printf("                   \n");
+    gotoxy(dinoX, dinoY + 1);       printf("                   \n");
+    gotoxy(dinoX, dinoY + 2);       printf("                   \n");
+    gotoxy(dinoX, dinoY + 3);       printf("               $$$$$ \n");
+    gotoxy(dinoX, dinoY + 4);       printf("              $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 5);       printf("    *         $$ $$$$$\n");
+    gotoxy(dinoX, dinoY + 6);       printf("    $         $$$$$\033[33m$$$$$$$$\033[0m\n");
+    gotoxy(dinoX, dinoY + 7);       printf("    $$        $$$$$\033[33m$$$$$$$\033[0m\n");
+    gotoxy(dinoX, dinoY + 8);       printf("    $$        $$$$$\n");
+
+}
+void avoid_rabbit(int tic) {
+
+    int toc = tic % 8;
+    gotoxy(0, 15);            printf("             \n");
+    gotoxy(0, 16);            printf("             \n");
+    gotoxy(0, 17);            printf("              \n");
+    gotoxy(dinoX, dinoY + 3); printf("      $$$$ $$$$\n");
+    gotoxy(dinoX, dinoY + 4); printf("     $  $$ $$   \n");
+    gotoxy(dinoX, dinoY + 5); printf("        $$$$$$  \n");
+    gotoxy(dinoX, dinoY + 6); printf("       $$$ $$$$ \n");
+    gotoxy(dinoX, dinoY + 7); printf("       $$$$$$$\n");
+}
+
+void head_rabbit(int tic) {
+
+    int toc = tic % 8;
+    //몸통
+    gotoxy(dinoX, dinoY);          printf("        $$ $$\n");
+    gotoxy(dinoX, dinoY + 1);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY + 2);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY + 3);      printf("        $\033[1;35m$\033[0m $\033[1;35m$\033[0m  \n");
+    gotoxy(dinoX, dinoY + 4);      printf("        $$$$$$  \n");
+    gotoxy(dinoX, dinoY + 5);      printf("       $$$ $$$$ \n");
+    gotoxy(dinoX, dinoY + 6);      printf("       $$$$$$$ \n");
+    gotoxy(dinoX, dinoY + 7);      printf("      $$$$$$  \n");
+
+}
+
+void head_Tyrano(int tic) {
+    int toc = tic % 8;
+    gotoxy(dinoX, dinoY + 2);      printf("          $$$$$$$ \n");
+    gotoxy(dinoX, dinoY + 3);      printf("         $$ $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 4);      printf("         $$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 5);      printf("  $       $$$$      \n");
+    gotoxy(dinoX, dinoY + 6);      printf("  $$     $$$$$$$$  \n");
+    gotoxy(dinoX, dinoY + 7);      printf("  $$$   $$$$$$     \n");
+    gotoxy(dinoX, dinoY + 8);      printf("   $$  $$$$$$$$$$$ \n");
+}
+
+void avoid_Tyrano(int tic) {
+    int toc = tic % 8;
+    
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
+    gotoxy(dinoX, dinoY + 2);      printf("                      ");
+    gotoxy(dinoX, dinoY + 3);      printf("             $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 4);      printf("            $$ $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 5);      printf("  $         $$$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 6);      printf("  $$       $$$$$$$$$\n");
+    gotoxy(dinoX, dinoY + 7);      printf("  $$$    $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 8);      printf("   $$   $$$$$$$$$$$");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 
@@ -860,7 +927,7 @@ void city() { //집 오른쪽에서 왼쪽으로 이동
 }
 
 void back_draw_winter() {
-     printf("\n\n");
+    printf("\n\n");
     printf("        *       *                      *                *         *                *              *             *\n");
     printf("*                       *        *                  *                       *          *      *       *     *     \n");
     printf(" *        *      *       *       *      *          *      *        *       *              *          *            *  * \n");
@@ -1005,7 +1072,7 @@ void score(int tic) { //점수 출력
 int end(int tic) { //엔딩 화면
     system("cls");
     int a = 10;
-     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     gotoxy(a, a);       printf("      #####      ##    ##   ##  #######            #####    ##  ##  #######   ######  \n");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
     gotoxy(a, a + 1);   printf("     ##   ##    ####   ### ###   ##  ##           ##   ##   ##  ##   ##  ##   ##  ##  \n");
@@ -1089,6 +1156,17 @@ int main() {
                             dinoY++;
                             erase_dino();
                             h--;
+                        }
+                    }
+                    if (key == 115 && dinoY - 15 == 0) { //'s(S)'가 눌리고 공룡이 바닥에 있을 때
+                        if (charChoise == 1) {
+                            avoid_Tyrano(tic);
+                        }
+                        if (charChoise == 2) {
+                            avoid_duck(tic);
+                        }
+                        if (charChoise == 3) {
+                            avoid_rabbit(tic);
                         }
                     }
                 }
