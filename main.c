@@ -185,7 +185,7 @@ void infoDraw() {
     printf("\n\n\n\n");
     printf("                                                            [ 조작법 ]\n\n\n");
     printf("                                               점프 : Space Bar  /  고개 숙이기 : s\n\n\n\n");
-    printf("                   다가오는 장애물들을 점프와 고개를 숙여 피하고 오래 살수록 점수가 높아지는 횡스크롤 게임입니다.\n\n\n\n");
+    printf("                             다가오는 장애물들을 점프와 고개 숙이기로 피해 오래 살아남는 게임입니다.\n\n\n\n");
     printf("                               [ 스 페 이 스 바 를  누 르 면  메 인 화 면 으 로  이 동 합 니 다. ]");
 
     while (1) {
@@ -767,7 +767,7 @@ void head_Tyrano(int tic) {
 
 void avoid_Tyrano(int tic) {
     int toc = tic % 8;
-    
+
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     gotoxy(dinoX, dinoY + 2);      printf("                      ");
@@ -799,17 +799,17 @@ void back_draw_desert() {
     printf("\n\n");
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-     printf("        *       *                      *                *         *                *             *             *\n");
-  
-     printf("*                       *        *                  *                                        \033[0;33m /\\\033[0m         *        \n");
-     printf("      *         *                          *               *             *                  \033[0;33m /__\\\033[0m            *       \n");
-     printf("             \033[0;33m/\\\033[0m                   *                      \033[0;33m___\033[0m                           *    \033[0;33m/____\\\033[0m               *\n");
-     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
-     printf("            /__\\               __                       /   \\                              /______\\                 \n");
-     printf("           /____\\             /--\\                     /_   _\\                            /________\\               \n");
-     printf("          /______\\           /____\\                     /   \\                            /__________\\             \n");
-     printf("_________/________\\_________/______\\___________________|_____|__________________________/____________\\_____________\n");
-     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); 
+    printf("        *       *                      *                *         *                *             *             *\n");
+
+    printf("*                       *        *                  *                                        \033[0;33m /\\\033[0m         *        \n");
+    printf("      *         *                          *               *             *                  \033[0;33m /__\\\033[0m            *       \n");
+    printf("             \033[0;33m/\\\033[0m                   *                      \033[0;33m___\033[0m                           *    \033[0;33m/____\\\033[0m               *\n");
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
+    printf("            /__\\               __                       /   \\                              /______\\                 \n");
+    printf("           /____\\             /--\\                     /_   _\\                            /________\\               \n");
+    printf("          /______\\           /____\\                     /   \\                            /__________\\             \n");
+    printf("_________/________\\_________/______\\___________________|_____|__________________________/____________\\_____________\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 }
 void draw_tree() { //나무 그리기
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
@@ -872,15 +872,15 @@ void speedControl() {
 }
 
 void back_draw_city() {
-   printf("\n\n");
-   printf("\033[35m                                                                           |\n");
-   printf("\033[32m                                               __                         | |                           __\033[0m\n");
-   printf("\033[34m                                              |  |    /\\                 /   \\      _     ===          |  |    /\\\033[0m\n");
-   printf("\033[32m         /\\             _      __         __  |  |   |  |   =            |   |     /_\\   |   |     __  |  |   |  |   = \033[0m\n");
-   printf("\033[33m        |  |  _  __    | | __ |  |  _    |  |_|  |   |  |  | |    __     |   |    |   |  |   |    |  |_|  |   |  |  | |\033[0m\n");
-   printf("\033[33m   _    |  | | ||  |   | ||  ||  | | |   |   _   |   |  |  | |   |  |    |   |    |   |  |   |    |   _   |   |  |  | |\033[0m\n");
-   printf("\033[35m  | |   |  | | ||  |   | ||  ||  | | |   |  | |  |   |  |  | |   |  |   _|   |_   |   |  |   |    |  | |  |   |  |  | |\033[0m\n");
-   printf("\033[34m__| |___|  |_| ||  |___| ||  ||  |_| |___|  |_|  |___|  |__| |___|  |__/       \\__|   |__|   |____|  |_|  |___|  |__| |_\033[0m");
+    printf("\n\n");
+    printf("\033[35m                                                                           |\n");
+    printf("\033[32m                                               __                         | |                           __\033[0m\n");
+    printf("\033[34m                                              |  |    /\\                 /   \\      _     ===          |  |    /\\\033[0m\n");
+    printf("\033[32m         /\\             _      __         __  |  |   |  |   =            |   |     /_\\   |   |     __  |  |   |  |   = \033[0m\n");
+    printf("\033[33m        |  |  _  __    | | __ |  |  _    |  |_|  |   |  |  | |    __     |   |    |   |  |   |    |  |_|  |   |  |  | |\033[0m\n");
+    printf("\033[33m   _    |  | | ||  |   | ||  ||  | | |   |   _   |   |  |  | |   |  |    |   |    |   |  |   |    |   _   |   |  |  | |\033[0m\n");
+    printf("\033[35m  | |   |  | | ||  |   | ||  ||  | | |   |  | |  |   |  |  | |   |  |   _|   |_   |   |  |   |    |  | |  |   |  |  | |\033[0m\n");
+    printf("\033[34m__| |___|  |_| ||  |___| ||  ||  |_| |___|  |_|  |___|  |__| |___|  |__/       \\__|   |__|   |____|  |_|  |___|  |__| |_\033[0m");
 }
 
 void draw_city() { //집 그리기
