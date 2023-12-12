@@ -881,7 +881,7 @@ void speedControl() {
 void back_draw_city() {
     printf("\n\n");
     printf("\033[35m                                                                           |\n");
-    printf("\033[32m                                               __                         | |                           __\033[0m\n");
+    printf("\033[32m                                               __                         | |              |            __\033[0m\n");
     printf("\033[34m                                              |  |    /\\                 /   \\      _     ===          |  |    /\\\033[0m\n");
     printf("\033[32m         /\\             _      __         __  |  |   |  |   =            |   |     /_\\   |   |     __  |  |   |  |   = \033[0m\n");
     printf("\033[33m        |  |  _  __    | | __ |  |  _    |  |_|  |   |  |  | |    __     |   |    |   |  |   |    |  |_|  |   |  |  | |\033[0m\n");
@@ -1033,7 +1033,7 @@ void draw_bird() {
     gotoxy(treeX + 2, AIR_Y + 3);       printf("  \ )__      \n");
     gotoxy(treeX + 2, AIR_Y + 4);       printf(" <o)____<<   \n");
     gotoxy(treeX + 2, AIR_Y + 5);       printf("     \_)     \n");
-   
+
 }
 void erase_bird() {
     if (temp < 950) {
@@ -1041,7 +1041,7 @@ void erase_bird() {
         gotoxy(treeX + 3, AIR_Y + 3);    printf("             \n");
         gotoxy(treeX + 3, AIR_Y + 4);    printf("             \n");
         gotoxy(treeX + 3, AIR_Y + 5);    printf("             \n");
-       
+
     }
     else if (temp >= 950 && temp < 1350) {
         gotoxy(treeX + 3, AIR_Y + 2);    printf("             \n");
@@ -1054,10 +1054,10 @@ void erase_bird() {
         gotoxy(treeX + 3, AIR_Y + 3);    printf("             \n");
         gotoxy(treeX + 3, AIR_Y + 4);    printf("             \n");
         gotoxy(treeX + 3, AIR_Y + 5);    printf("             \n");
-       
+
     }
 }
-  
+
 void bird() {
 
     treeX -= treeDecrement;
@@ -1070,7 +1070,7 @@ void draw_snowball() {
     gotoxy(treeX + 2, AIR_Y + 3);       printf("    @@@       \n");
     gotoxy(treeX + 2, AIR_Y + 4);       printf("   @@@@@      \n");
     gotoxy(treeX + 2, AIR_Y + 5);       printf("    @@@       \n");
-   
+
 
 }
 void erase_snowball() {
