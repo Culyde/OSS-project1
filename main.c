@@ -370,10 +370,10 @@ int charDraw() {
     gotoxy(11, dinoY + 4);      printf("$$     $$$$$$$  \n");
     gotoxy(11, dinoY + 5);      printf("$$$   $$$$$     \n");
     gotoxy(11, dinoY + 6);      printf(" $$  $$$$$$$$$$ \n");
-    gotoxy(11, dinoY + 7);      printf(" $$$$$$$$$$$    \n");
-    gotoxy(11, dinoY + 8);      printf("  $$$$$$$$$$    \n");
-    gotoxy(11, dinoY + 9);      printf("    $$$$$$$$    \n");
-    gotoxy(11, dinoY + 10);     printf("     $$$$$$     \n");
+    gotoxy(11, dinoY + 7);      printf(" $$$$$$\033[1;37m$$$$$\033[0;33m    \n");
+    gotoxy(11, dinoY + 8);      printf("  $$$$\033[1;37m$$$$$$\033[0;33m    \n");
+    gotoxy(11, dinoY + 9);      printf("    $$$\033[1;37m$$$$$\033[0;33m    \n");
+    gotoxy(11, dinoY + 10);     printf("     $$$\033[1;37m$$$\033[0;33m    \n");
     gotoxy(11, dinoY + 11);     printf("     $    $$$    \n");
     gotoxy(11, dinoY + 12);     printf("     $$          ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
@@ -448,10 +448,10 @@ int charDraw() {
                 gotoxy(47, dinoY + 4);      printf("$$     $$$$$$$  \n");
                 gotoxy(47, dinoY + 5);      printf("$$$   $$$$$     \n");
                 gotoxy(47, dinoY + 6);      printf(" $$  $$$$$$$$$$ \n");
-                gotoxy(47, dinoY + 7);      printf(" $$$$$$$$$$$    \n");
-                gotoxy(47, dinoY + 8);      printf("  $$$$$$$$$$    \n");
-                gotoxy(47, dinoY + 9);      printf("    $$$$$$$$    \n");
-                gotoxy(47, dinoY + 10);     printf("     $$$$$$     \n");
+                gotoxy(47, dinoY + 7);      printf(" $$$$$$\033[1;37m$$$$$\033[0;33m    \n");
+                gotoxy(47, dinoY + 8);      printf("  $$$$\033[1;37m$$$$$$\033[0;33m    \n");
+                gotoxy(47, dinoY + 9);      printf("    $$$\033[1;37m$$$$$\033[0;33m    \n");
+                gotoxy(47, dinoY + 10);     printf("     $$$\033[1;37m$$$\033[0;33m    \n");
                 gotoxy(47, dinoY + 11);     printf("     $    $$$    \n");
                 gotoxy(47, dinoY + 12);     printf("     $$          ");
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
@@ -613,10 +613,10 @@ void draw_Tyrano(int tic) {//티라노 그리기
     //몸통
     if (key != 115)
         head_Tyrano(tic);
-    gotoxy(dinoX, dinoY + 9);      printf("   $$$$$$$$$$$$ \n");
-    gotoxy(dinoX, dinoY + 10);     printf("    $$$$$$$$$$$ \n");
-    gotoxy(dinoX, dinoY + 11);     printf("      $$$$$$$$$\n");
-    gotoxy(dinoX, dinoY + 12);     printf("       $$$$$$$\n");
+    gotoxy(dinoX, dinoY + 9);      printf("   $$$$$$\033[1;37m$$$$$\033[0;33m    \n");
+    gotoxy(dinoX, dinoY + 10);     printf("    $$$$\033[1;37m$$$$$$\033[0;33m    \n");
+    gotoxy(dinoX, dinoY + 11);     printf("     $$$\033[1;37m$$$$$\033[0;33m    \n");
+    gotoxy(dinoX, dinoY + 12);     printf("       $$$\033[1;37m$$$\033[0;33m    \n");
 
     if (toc >= 0 && toc <= 3) //4tic 동안 유지
     {
@@ -880,7 +880,7 @@ void back_draw_city() {
 }
 
 void draw_city() { //집 그리기
-   
+
     gotoxy(treeX + 2, TREE_Y);           printf("____\n");
     gotoxy(treeX + 1, TREE_Y + 1);      printf("/    \\\n");
     gotoxy(treeX + 1, TREE_Y + 2);      printf("------\n");
@@ -1022,7 +1022,6 @@ void draw_bird() {
     gotoxy(treeX + 2, AIR_Y + 3);       printf("  \ )__      \n");
     gotoxy(treeX + 2, AIR_Y + 4);       printf(" <o)____<<   \n");
     gotoxy(treeX + 2, AIR_Y + 5);       printf("     \_)     \n");
-
 }
 void erase_bird() {
     if (temp < 950) {
