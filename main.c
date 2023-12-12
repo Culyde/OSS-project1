@@ -79,7 +79,6 @@ int last_score = 0;
 int best_score = 0;
 int temp;
 int treeDecrement = 1;
-//int random_number = 1;
 
 void pushpull() {
     PlaySound(TEXT("dinogamebgm.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
@@ -229,7 +228,7 @@ int infoStages() {
     gotoxy(13, y + 2);            printf("> 1. 사막");
     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
     gotoxy(6, dinoY);          printf("            /\\\n");
-    gotoxy(6, dinoY + 1);       printf("           /__\\\n");
+    gotoxy(6, dinoY + 1);      printf("           /__\\\n");
     gotoxy(6, dinoY + 2);      printf("          /____\\\n");
     gotoxy(6, dinoY + 3);      printf("         /______\\\n");
     gotoxy(6, dinoY + 4);      printf("        /________\\\n");
@@ -325,13 +324,11 @@ int infoStages() {
                 printf("도시 맵을 선택하셨습니다.");
                 gotoxy(28, 10);
                 printf("[ 스 페 이 스 바 를  누 르 면  처 음 화 면 으 로  돌 아 갑 니 다. ]");
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
                 gotoxy(47, dinoY);          printf("       ____      \n");
                 gotoxy(47, dinoY + 1);      printf("      /    \\   \n");
                 gotoxy(47, dinoY + 2);      printf("      ------    \n");
                 gotoxy(47, dinoY + 3);      printf("       |##| \n");
                 gotoxy(47, dinoY + 4);      printf("       |  |  \n");
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
                 if (keyControl() == SUBMIT)
                     return stageChoise = 3;
             }
@@ -531,15 +528,7 @@ int game(int tic) { //게임화면 메인 요소
     }
     else if (stageChoise == 3) {
         back_draw_city();
-        //if(treeX <= 0)
-        //random_number = rand() % 2; // 0 또는 1 중 하나의 값을 랜덤으로 생성
-
-        //if (random_number == 0) {
         city(); // city 함수 실행
-        //}
-        //else {
-        //    airplain(); // airplain 함수 실행
-        //}
     }
 
     if (charChoise == 1)
@@ -891,13 +880,13 @@ void back_draw_city() {
 }
 
 void draw_city() { //집 그리기
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+   
     gotoxy(treeX + 2, TREE_Y);           printf("____\n");
     gotoxy(treeX + 1, TREE_Y + 1);      printf("/    \\\n");
     gotoxy(treeX + 1, TREE_Y + 2);      printf("------\n");
     gotoxy(treeX + 2, TREE_Y + 3);       printf("|##|\n");
     gotoxy(treeX + 2, TREE_Y + 4);       printf("|  |");
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
 }
 
 void erase_city() { //집 지우기
@@ -1029,7 +1018,7 @@ void airplain() {
     speedControl();
 }
 void draw_bird() {
-    gotoxy(treeX + 2, AIR_Y + 2);       printf(" _           \n");
+    gotoxy(treeX + 2, AIR_Y + 2);       printf("  _          \n");
     gotoxy(treeX + 2, AIR_Y + 3);       printf("  \ )__      \n");
     gotoxy(treeX + 2, AIR_Y + 4);       printf(" <o)____<<   \n");
     gotoxy(treeX + 2, AIR_Y + 5);       printf("     \_)     \n");
