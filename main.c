@@ -60,6 +60,13 @@ void erase_Snowman();
 void airplain();
 void draw_airplain();
 void erase_airplain();
+void bird();
+void draw_bird();
+void erase_bird();
+void snowball();
+void draw_snowball();
+void erase_snowball();
+
 
 int treeX = TREE_X;
 int dinoX = DINO_X;
@@ -1018,6 +1025,82 @@ void airplain() {
     treeX -= treeDecrement;
     erase_airplain();
     draw_airplain();
+
+    speedControl();
+}
+void draw_bird() {
+    gotoxy(treeX + 2, AIR_Y + 2);       printf(" _           \n");
+    gotoxy(treeX + 2, AIR_Y + 3);       printf("  \ )__      \n");
+    gotoxy(treeX + 2, AIR_Y + 4);       printf(" <o)____<<   \n");
+    gotoxy(treeX + 2, AIR_Y + 5);       printf("     \_)     \n");
+   
+}
+void erase_bird() {
+    if (temp < 950) {
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("             \n");
+       
+    }
+    else if (temp >= 950 && temp < 1350) {
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("             \n");
+    }
+    else if (temp >= 1350) {
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("             \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("             \n");
+       
+    }
+}
+  
+void bird() {
+
+    treeX -= treeDecrement;
+    erase_bird();
+    draw_bird();
+
+    speedControl();
+}
+void draw_snowball() {
+    gotoxy(treeX + 2, AIR_Y + 3);       printf("    @@@       \n");
+    gotoxy(treeX + 2, AIR_Y + 4);       printf("   @@@@@      \n");
+    gotoxy(treeX + 2, AIR_Y + 5);       printf("    @@@       \n");
+   
+
+}
+void erase_snowball() {
+    if (temp < 950) {
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("              \n");
+
+    }
+    else if (temp >= 950 && temp < 1350) {
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("              \n");
+    }
+    else if (temp >= 1350) {
+        gotoxy(treeX + 3, AIR_Y + 2);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 3);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 4);    printf("              \n");
+        gotoxy(treeX + 3, AIR_Y + 5);    printf("              \n");
+
+    }
+}
+
+void snowball() {
+
+    treeX -= treeDecrement;
+    erase_snowball();
+    draw_snowball();
 
     speedControl();
 }
